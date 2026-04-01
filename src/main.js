@@ -1,4 +1,8 @@
-﻿// --- Filter buttons ---
+import { initAnalytics } from './analytics.js'
+
+initAnalytics()
+
+// --- Filter buttons ---
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', function () {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'))

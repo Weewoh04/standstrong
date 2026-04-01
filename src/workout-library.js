@@ -1,3 +1,7 @@
+import { initAnalytics } from './analytics.js'
+
+initAnalytics()
+
 const workouts = [
   { id: 'leg-pump', title: 'Leg Pump Recumbent Circuit', phase: 1, mode: 'recumbent', duration: '12 min', intensity: 'Low', blurb: 'Calf and ankle pump sequence for early venous return support.', exerciseCount: 5 },
   { id: 'breathing', title: 'Diaphragmatic Breathing & Pacing', phase: 0, mode: 'breathing', duration: '8 min', intensity: 'Recovery', blurb: 'Daily autonomic downshift routine for symptom flare control.', exerciseCount: 4 },

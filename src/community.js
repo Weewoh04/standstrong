@@ -1,4 +1,7 @@
+import { initAnalytics } from './analytics.js'
 import { communityPosts } from './community-posts.js'
+
+initAnalytics()
 
 const postsRoot = document.getElementById('research-posts')
 

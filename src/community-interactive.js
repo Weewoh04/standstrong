@@ -1,4 +1,7 @@
-﻿import { supabase } from './supabase.js'
+import { initAnalytics } from './analytics.js'
+import { supabase } from './supabase.js'
+
+initAnalytics()
 
 const authStatus = document.getElementById('auth-status')
 const authEmail = document.getElementById('auth-email')
