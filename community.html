@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community | StandStrong</title>
+<meta name="description" content="StandStrong community hub with POTS research roundups, practical takeaways, and community stories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#faf7f2;--forest:#1a3a2a;--sage:#4a7c59;--mint:#c8e6d0;--gold:#d4a853;--warm:#f5ede0;
+    --text:#1a1a18;--muted:#6b7066;--border:#e0dbd2;
+  }
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+  nav{background:var(--forest);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
+  .logo{font-family:'Fraunces',serif;color:#fff;font-size:1.3rem;font-weight:500;letter-spacing:-0.02em;text-decoration:none}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:1.5rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;letter-spacing:0.03em;text-transform:uppercase;transition:color 0.2s}
+  .nav-links a:hover,.nav-links a.active{color:#fff}
+
+  .hero-wrap{background:var(--forest)}
+  .hero{max-width:1100px;margin:0 auto;padding:3.8rem 2rem;color:#fff}
+  .hero-tag{background:var(--sage);display:inline-block;color:#fff;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:999px;margin-bottom:1rem}
+  .hero h1{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;line-height:1.12;letter-spacing:-0.02em;margin-bottom:0.9rem}
+  .hero p{color:rgba(255,255,255,0.74);max-width:700px}
+
+  .main-wrap{max-width:1100px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:1fr 310px;gap:1.3rem}
+  .panel{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.2rem;margin-bottom:1rem}
+  .section-title{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:400;color:var(--forest);margin-bottom:0.35rem}
+  .section-sub{font-size:0.85rem;color:var(--muted);margin-bottom:0.85rem}
+  .post-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+  .post{border:1px solid var(--border);border-radius:12px;padding:0.95rem;background:var(--cream)}
+  .post time{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted)}
+  .post h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;color:var(--forest);margin:0.35rem 0 0.45rem}
+  .post p{font-size:0.82rem;color:var(--muted);margin-bottom:0.55rem}
+  .chips{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.55rem}
+  .chip{font-size:0.68rem;background:var(--mint);color:var(--forest);padding:0.2rem 0.5rem;border-radius:999px}
+  .read-link{font-size:0.8rem;color:var(--sage);text-decoration:none;font-weight:500}
+
+  .story{padding:0.8rem 0;border-bottom:1px solid var(--border)}
+  .story:last-child{border-bottom:none;padding-bottom:0}
+  .story strong{display:block;font-size:0.85rem;color:var(--forest);margin-bottom:0.2rem}
+  .story p{font-size:0.82rem;color:var(--muted)}
+
+  .aside-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:1rem}
+  .aside-card h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;color:var(--forest);margin-bottom:0.5rem}
+  .aside-card p{font-size:0.82rem;color:var(--muted);margin-bottom:0.55rem}
+  .aside-list{list-style:none}
+  .aside-list li{font-size:0.82rem;color:var(--muted);margin-bottom:0.45rem}
+  .aside-list a{text-decoration:none;color:var(--sage)}
+  .cta{display:inline-block;background:var(--forest);color:#fff;text-decoration:none;padding:0.42rem 1rem;border-radius:999px;font-size:0.78rem}
+  .notice{background:var(--warm);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:0.8rem 0.9rem;font-size:0.78rem;color:#5a4a1a}
+  .notice strong{display:block;margin-bottom:0.25rem}
+
+  footer{background:var(--forest);color:rgba(255,255,255,0.6);text-align:center;padding:1.7rem;margin-top:2rem;font-size:0.78rem}
+  footer a{color:rgba(255,255,255,0.66);text-decoration:none}
+
+  @media(max-width:900px){
+    .main-wrap{grid-template-columns:1fr}
+  }
+  @media(max-width:700px){
+    .hero h1{font-size:2rem}
+    .nav-links{display:none}
+    .post-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Stand<span>Strong</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#workouts">Workouts</a></li>
+    <li><a href="pots-101.html">POTS 101</a></li>
+    <li><a href="gear.html">Gear</a></li>
+    <li><a href="community.html" class="active">Community</a></li>
+  </ul>
+</nav>
+
+<div class="hero-wrap">
+  <section class="hero">
+    <span class="hero-tag">Community Hub</span>
+    <h1>Community + Research Roundups</h1>
+    <p>A blog-style space for practical POTS research summaries, member stories, and discussion prompts. Built to translate new evidence into safe, day-to-day action.</p>
+  </section>
+</div>
+
+<div class="main-wrap">
+  <main>
+    <section class="panel">
+      <h2 class="section-title">Latest Research Roundups</h2>
+      <p class="section-sub">Short summaries of recent studies with plain-language takeaways and practical implications.</p>
+      <div class="post-grid" id="research-posts"></div>
+    </section>
+
+    <section class="panel">
+      <h2 class="section-title">Community Stories</h2>
+      <p class="section-sub">Real routines, setbacks, and wins from people building consistency with POTS.</p>
+      <div class="story">
+        <strong>"I stopped chasing intensity and started tracking consistency."</strong>
+        <p>After switching to short recumbent sessions, one member reported fewer flare days and better confidence progressing to seated work.</p>
+      </div>
+      <div class="story">
+        <strong>"Compression + hydration before noon changed my whole day."</strong>
+        <p>A shared strategy from the community: prepare baseline supports early to reduce afternoon symptom spikes.</p>
+      </div>
+      <div class="story">
+        <strong>"My biggest win was learning recovery is part of training."</strong>
+        <p>Members are using pacing calendars and planned low-intensity days to avoid crash cycles.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside>
+    <section class="aside-card">
+      <h3>Join The Conversation</h3>
+      <p>Use this hub to post a weekly check-in prompt, comments, or member Q&A roundups.</p>
+      <a class="cta" href="#">Open Discussion Thread</a>
+    </section>
+
+    <section class="aside-card">
+      <h3>Explore More</h3>
+      <ul class="aside-list">
+        <li><a href="pots-101.html">POTS 101</a></li>
+        <li><a href="index.html#workouts">Workout Library</a></li>
+        <li><a href="gear.html">Recommended Gear</a></li>
+      </ul>
+    </section>
+
+    <section class="notice">
+      <strong>Research note</strong>
+      This page is educational and should summarize primary sources accurately with publication dates and links.
+    </section>
+  </aside>
+</div>
+
+<footer>
+  <div style="margin-bottom:0.4rem">&copy; 2026 StandStrong POTS Fitness</div>
+  <div><a href="index.html">Home</a> | <a href="index.html#workouts">Workouts</a> | <a href="pots-101.html">POTS 101</a> | <a href="gear.html">Gear</a></div>
+</footer>
+<script type="module" src="/src/community.js"></script>
+</body>
+</html>
