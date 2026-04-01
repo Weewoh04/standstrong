@@ -27,10 +27,11 @@
   .hero h1{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;line-height:1.12;letter-spacing:-0.02em;margin-bottom:0.9rem}
   .hero p{color:rgba(255,255,255,0.74);max-width:700px}
 
-  .main-wrap{max-width:1100px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:1fr 310px;gap:1.3rem}
+  .main-wrap{max-width:1100px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:1fr 320px;gap:1.3rem}
   .panel{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.2rem;margin-bottom:1rem}
   .section-title{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:400;color:var(--forest);margin-bottom:0.35rem}
   .section-sub{font-size:0.85rem;color:var(--muted);margin-bottom:0.85rem}
+
   .post-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
   .post{border:1px solid var(--border);border-radius:12px;padding:0.95rem;background:var(--cream)}
   .post time{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted)}
@@ -40,11 +41,38 @@
   .chip{font-size:0.68rem;background:var(--mint);color:var(--forest);padding:0.2rem 0.5rem;border-radius:999px}
   .read-link{font-size:0.8rem;color:var(--sage);text-decoration:none;font-weight:500}
 
-  .story{padding:0.8rem 0;border-bottom:1px solid var(--border)}
-  .story:last-child{border-bottom:none;padding-bottom:0}
-  .story strong{display:block;font-size:0.85rem;color:var(--forest);margin-bottom:0.2rem}
-  .story p{font-size:0.82rem;color:var(--muted)}
-  #discussion{scroll-margin-top:84px}
+  .notice-banner{border-radius:10px;padding:0.75rem 0.9rem;font-size:0.82rem;margin-bottom:0.9rem}
+  .notice-banner.info{background:#eef5ff;color:#2f4c7a;border:1px solid #d3e3fb}
+  .notice-banner.success{background:#ecf9f0;color:#1f6b3a;border:1px solid #cdeed8}
+  .notice-banner.error{background:#fff1f1;color:#8a2c2c;border:1px solid #f3d3d3}
+
+  .auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
+  .input{width:100%;border:1px solid var(--border);border-radius:8px;padding:0.55rem 0.7rem;font-size:0.83rem;font-family:'DM Sans',sans-serif;background:#fff}
+  .btn-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.6rem}
+  .btn{border:none;border-radius:999px;padding:0.42rem 0.95rem;font-size:0.78rem;font-family:'DM Sans',sans-serif;cursor:pointer}
+  .btn-primary{background:var(--forest);color:#fff}
+  .btn-muted{background:#e9e6e1;color:#40403d}
+  .btn:disabled{opacity:0.55;cursor:not-allowed}
+
+  .composer textarea{min-height:92px;resize:vertical}
+
+  .thread-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+  .thread-col{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:0.9rem}
+  .thread-col h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--forest);margin-bottom:0.55rem}
+
+  .community-post{background:#fff;border:1px solid var(--border);border-radius:10px;padding:0.75rem;margin-bottom:0.7rem}
+  .community-post h4{font-family:'Fraunces',serif;font-size:0.98rem;font-weight:400;color:var(--forest);margin:0.2rem 0 0.4rem}
+  .community-post p{font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;white-space:pre-wrap}
+  .meta-row{font-size:0.72rem;color:#7e827b}
+  .link-btn{border:none;background:transparent;color:var(--sage);font-size:0.75rem;cursor:pointer;padding:0;margin:0.2rem 0 0.5rem}
+
+  .comments-wrap{border-top:1px solid var(--border);padding-top:0.5rem;margin-top:0.4rem}
+  .comments-wrap h5{font-size:0.78rem;color:#4c5049;margin-bottom:0.35rem}
+  .comment-item{border:1px solid var(--border);background:var(--cream);border-radius:8px;padding:0.45rem 0.55rem;margin-bottom:0.45rem}
+  .comment-item p{margin:0.25rem 0 0.3rem;font-size:0.79rem;color:#5b6058}
+  .comment-composer textarea{width:100%;min-height:64px;border:1px solid var(--border);border-radius:8px;padding:0.45rem 0.55rem;font-size:0.8rem;font-family:'DM Sans',sans-serif}
+  .mini-btn{border:none;background:var(--forest);color:#fff;border-radius:999px;padding:0.3rem 0.8rem;font-size:0.74rem;cursor:pointer;margin-top:0.35rem}
+  .empty-state,.empty-comments{font-size:0.8rem;color:var(--muted);padding:0.45rem 0}
 
   .aside-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:1rem}
   .aside-card h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;color:var(--forest);margin-bottom:0.5rem}
@@ -59,6 +87,9 @@
   footer{background:var(--forest);color:rgba(255,255,255,0.6);text-align:center;padding:1.7rem;margin-top:2rem;font-size:0.78rem}
   footer a{color:rgba(255,255,255,0.66);text-decoration:none}
 
+  @media(max-width:1000px){
+    .thread-wrap{grid-template-columns:1fr}
+  }
   @media(max-width:900px){
     .main-wrap{grid-template-columns:1fr}
   }
@@ -66,6 +97,7 @@
     .hero h1{font-size:2rem}
     .nav-links{display:none}
     .post-grid{grid-template-columns:1fr}
+    .auth-grid{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -97,32 +129,48 @@
     </section>
 
     <section class="panel">
-      <h2 class="section-title">Community Stories</h2>
-      <p class="section-sub">Real routines, setbacks, and wins from people building consistency with POTS.</p>
-      <div class="story">
-        <strong>"I stopped chasing intensity and started tracking consistency."</strong>
-        <p>After switching to short recumbent sessions, one member reported fewer flare days and better confidence progressing to seated work.</p>
+      <h2 class="section-title">Interactive Community</h2>
+      <p class="section-sub">Create an account to post stories, join discussions, comment, and report content that breaks community rules.</p>
+      <div id="community-notice" class="notice-banner info">Loading community tools...</div>
+
+      <div class="auth-grid">
+        <input id="auth-email" class="input" type="email" placeholder="Email">
+        <input id="auth-password" class="input" type="password" placeholder="Password (8+ chars)">
       </div>
-      <div class="story">
-        <strong>"Compression + hydration before noon changed my whole day."</strong>
-        <p>A shared strategy from the community: prepare baseline supports early to reduce afternoon symptom spikes.</p>
+      <div class="btn-row">
+        <button id="signup-btn" class="btn btn-primary">Create Account</button>
+        <button id="login-btn" class="btn btn-muted">Log In</button>
+        <button id="logout-btn" class="btn btn-muted" disabled>Log Out</button>
       </div>
-      <div class="story">
-        <strong>"My biggest win was learning recovery is part of training."</strong>
-        <p>Members are using pacing calendars and planned low-intensity days to avoid crash cycles.</p>
+      <p id="auth-status" class="section-sub" style="margin-top:0.6rem;margin-bottom:0">Sign up or log in to post, comment, and report.</p>
+
+      <div class="composer" style="margin-top:1rem">
+        <div class="auth-grid">
+          <select id="post-type" class="input">
+            <option value="story">Community Story</option>
+            <option value="discussion">Discussion Thread</option>
+          </select>
+          <input id="post-title" class="input" type="text" placeholder="Post title">
+        </div>
+        <textarea id="post-content" class="input" placeholder="Share your experience, question, or weekly check-in."></textarea>
+        <div class="btn-row">
+          <button id="post-submit-btn" class="btn btn-primary" disabled>Publish Post</button>
+        </div>
       </div>
     </section>
 
     <section class="panel" id="discussion">
-      <h2 class="section-title">Discussion Thread</h2>
-      <p class="section-sub">Share your weekly check-in, questions, and wins. You can wire this section to your comments platform when ready.</p>
-      <div class="story">
-        <strong>Weekly Prompt</strong>
-        <p>What is one symptom-safe habit that helped you this week?</p>
-      </div>
-      <div class="story">
-        <strong>How To Contribute</strong>
-        <p>Add your forum, comment widget, or discussion embed here (for example: Disqus, Giscus, or a hosted community tool).</p>
+      <h2 class="section-title">Community Stories + Discussion Thread</h2>
+      <p class="section-sub">All posts are user-generated. NSFW content is blocked by safety filters and can also be reported by members.</p>
+      <div class="thread-wrap">
+        <div class="thread-col">
+          <h3>Community Stories</h3>
+          <div id="stories-feed"></div>
+        </div>
+        <div class="thread-col">
+          <h3>Discussion Thread</h3>
+          <div id="discussions-feed"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -144,8 +192,8 @@
     </section>
 
     <section class="notice">
-      <strong>Research note</strong>
-      This page is educational and should summarize primary sources accurately with publication dates and links.
+      <strong>Safety Firewall</strong>
+      NSFW terms are blocked at submit time and by database-level rules. Members can also report posts and comments.
     </section>
   </aside>
 </div>
@@ -155,5 +203,6 @@
   <div><a href="index.html">Home</a> | <a href="index.html#workouts">Workouts</a> | <a href="pots-101.html">POTS 101</a> | <a href="gear.html">Gear</a></div>
 </footer>
 <script type="module" src="/src/community.js"></script>
+<script type="module" src="/src/community-interactive.js"></script>
 </body>
 </html>
