@@ -379,11 +379,18 @@ function setNotice(message, type = 'info') {
 }
 
 function handleDbError(error) {
+  const message = error?.message || ''
+
+  if (message.includes('schema cache') || message.includes('Could not find the table')) {
+    setNotice('Community tables are missing. Run supabase/community_schema.sql in Supabase SQL Editor, then refresh this page.', 'error')
+    return
+  }
+
   if ((error.message || '').includes('NSFW_BLOCKED')) {
     setNotice('Blocked by NSFW firewall. Please keep posts safe for all audiences.', 'error')
     return
   }
-  setNotice(error.message || 'Something went wrong.', 'error')
+  setNotice(message || 'Something went wrong.', 'error')
 }
 
 function escapeHtml(value) {

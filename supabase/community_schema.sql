@@ -102,63 +102,73 @@ alter table public.community_comments enable row level security;
 alter table public.community_reports enable row level security;
 alter table public.community_comment_reports enable row level security;
 
-create policy if not exists community_posts_public_read
+drop policy if exists community_posts_public_read on public.community_posts;
+create policy community_posts_public_read
 on public.community_posts
 for select
 to anon, authenticated
 using (status = 'published');
 
-create policy if not exists community_comments_public_read
+drop policy if exists community_comments_public_read on public.community_comments;
+create policy community_comments_public_read
 on public.community_comments
 for select
 to anon, authenticated
 using (status = 'published');
 
-create policy if not exists community_posts_insert_own
+drop policy if exists community_posts_insert_own on public.community_posts;
+create policy community_posts_insert_own
 on public.community_posts
 for insert
 to authenticated
 with check (author_id = auth.uid());
 
-create policy if not exists community_comments_insert_own
+drop policy if exists community_comments_insert_own on public.community_comments;
+create policy community_comments_insert_own
 on public.community_comments
 for insert
 to authenticated
 with check (author_id = auth.uid());
 
-create policy if not exists community_posts_update_own
+drop policy if exists community_posts_update_own on public.community_posts;
+create policy community_posts_update_own
 on public.community_posts
 for update
 to authenticated
 using (author_id = auth.uid())
 with check (author_id = auth.uid());
 
-create policy if not exists community_posts_delete_own
+drop policy if exists community_posts_delete_own on public.community_posts;
+create policy community_posts_delete_own
 on public.community_posts
 for delete
 to authenticated
 using (author_id = auth.uid());
 
-create policy if not exists community_comments_update_own
+drop policy if exists community_comments_update_own on public.community_comments;
+create policy community_comments_update_own
 on public.community_comments
 for update
 to authenticated
 using (author_id = auth.uid())
 with check (author_id = auth.uid());
 
-create policy if not exists community_comments_delete_own
+drop policy if exists community_comments_delete_own on public.community_comments;
+create policy community_comments_delete_own
 on public.community_comments
 for delete
 to authenticated
 using (author_id = auth.uid());
 
-create policy if not exists community_reports_insert_own
+drop policy if exists community_reports_insert_own on public.community_reports;
+create policy community_reports_insert_own
 on public.community_reports
 for insert
 to authenticated
 with check (reporter_id = auth.uid());
 
-create policy if not exists community_comment_reports_insert_own
+drop policy if exists community_comment_reports_insert_own on public.community_comment_reports;
+create policy community_comment_reports_insert_own
 on public.community_comment_reports
 for insert
 to authenticated
