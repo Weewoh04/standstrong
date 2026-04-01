@@ -26,6 +26,7 @@ cp .env.example .env
 ```
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
+VITE_NEWSLETTER_WEBHOOK_URL=https://your-webhook-url
 ```
 
 ### 3. Run the dev server

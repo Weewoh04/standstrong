@@ -1,38 +1,38 @@
 export const communityPosts = [
   {
-    dateIso: '2026-03-15',
-    dateLabel: 'March 15, 2026',
-    title: 'Exercise Adherence in Dysautonomia Rehab',
-    tags: ['Exercise', 'Adherence'],
-    summary: 'Early consistency and pacing reduced dropout rates in progressive conditioning programs. Slow starts outperformed aggressive plans.',
-    href: '#',
-    cta: 'Read Summary'
+    dateIso: '2026-02-01',
+    dateLabel: 'February 2026',
+    title: 'POTS: State-of-the-Art Review',
+    tags: ['Review', 'Clinical Care'],
+    summary: 'Broad review of current POTS science and care, including diagnosis, mechanisms, and management considerations.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/41519610/',
+    cta: 'View on PubMed'
   },
   {
-    dateIso: '2026-03-08',
-    dateLabel: 'March 8, 2026',
-    title: 'Compression Strategy and Orthostatic Symptoms',
-    tags: ['Compression', 'Symptoms'],
-    summary: 'Combined lower-body plus abdominal compression showed better symptom control than calf-only use in upright tolerance routines.',
-    href: '#',
-    cta: 'Read Summary'
+    dateIso: '2026-02-01',
+    dateLabel: 'February 2026',
+    title: 'Pre- vs Post-COVID POTS Chart Audit',
+    tags: ['Post-COVID', 'Epidemiology'],
+    summary: 'Multi-national chart-audit study describing diagnosis pathways, symptoms, and management patterns before and after COVID-19.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/41483737/',
+    cta: 'View on PubMed'
   },
   {
-    dateIso: '2026-02-28',
-    dateLabel: 'February 28, 2026',
-    title: 'Hydration Patterns and Daily Function',
-    tags: ['Hydration', 'Lifestyle'],
-    summary: 'Structured fluid timing was linked with fewer afternoon crashes compared with unstructured catch-up intake.',
-    href: '#',
-    cta: 'Read Summary'
+    dateIso: '2025-11-04',
+    dateLabel: 'November 4, 2025',
+    title: 'Long-Term Outcomes Survey in POTS',
+    tags: ['Outcomes', 'Quality of Life'],
+    summary: 'Survey data on educational, economic, and social impact to better characterize long-term burden in people living with POTS.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/41147379/',
+    cta: 'View on PubMed'
   },
   {
-    dateIso: '2026-02-20',
-    dateLabel: 'February 20, 2026',
-    title: 'Heart-Rate Guided Training Thresholds',
-    tags: ['Heart Rate', 'Safety'],
-    summary: 'Programs using symptom and heart-rate guardrails had fewer flares while preserving long-term progress.',
-    href: '#',
-    cta: 'Read Summary'
+    dateIso: '2025-11-01',
+    dateLabel: 'November 2025',
+    title: 'Systematic Review of Randomized POTS Trials',
+    tags: ['Treatment', 'Systematic Review'],
+    summary: 'Review of randomized trial evidence for POTS treatments, including commonly used medication classes.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/40653179/',
+    cta: 'View on PubMed'
   }
 ]

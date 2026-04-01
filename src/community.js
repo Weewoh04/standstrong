@@ -15,6 +15,7 @@ function renderPosts(posts) {
   if (!postsRoot) return
 
   const html = posts.map(post => {
+    const isExternal = /^https?:\/\//i.test(post.href)
     const tagsHtml = post.tags
       .map(tag => `<span class=\"chip\">${escapeHtml(tag)}</span>`)
       .join('')
@@ -25,7 +26,7 @@ function renderPosts(posts) {
         <h3>${escapeHtml(post.title)}</h3>
         <div class=\"chips\">${tagsHtml}</div>
         <p>${escapeHtml(post.summary)}</p>
-        <a class=\"read-link\" href=\"${escapeHtml(post.href)}\">${escapeHtml(post.cta)}</a>
+        <a class=\"read-link\" href=\"${escapeHtml(post.href)}\"${isExternal ? ' target=\"_blank\" rel=\"noopener noreferrer\"' : ''}>${escapeHtml(post.cta)}</a>
       </article>
     `
   }).join('')
