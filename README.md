@@ -1,4 +1,4 @@
-﻿# StandStrong - POTS Fitness Website
+# StandStrong - POTS Fitness Website
 
 A specialized fitness website for people with POTS (Postural Orthostatic Tachycardia Syndrome). Built with Vite and Supabase.
 
@@ -22,7 +22,6 @@ cp .env.example .env
 ```env
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
-VITE_NEWSLETTER_WEBHOOK_URL=https://your-webhook-url
 ```
 
 3. Run dev server
@@ -49,6 +48,5 @@ npm run dev
 Set env vars in project settings:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
-- `VITE_NEWSLETTER_WEBHOOK_URL`
 
 Then deploy normally.

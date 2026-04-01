@@ -1,8 +1,4 @@
-﻿import { supabase } from './supabase.js'
-
-const newsletterWebhookUrl = (import.meta.env.VITE_NEWSLETTER_WEBHOOK_URL || '').trim()
-
-// --- Filter buttons ---
+﻿// --- Filter buttons ---
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', function () {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'))
@@ -13,61 +9,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     })
   })
 })
-
-// --- Newsletter signup ---
-const newsletterBtn = document.getElementById('newsletter-btn')
-const newsletterInput = document.getElementById('newsletter-input')
-
-if (newsletterBtn && newsletterInput) {
-  newsletterBtn.addEventListener('click', async () => {
-    const email = newsletterInput.value.trim()
-
-    if (!isValidEmail(email)) {
-      showToast('Please enter a valid email.', 'error')
-      return
-    }
-
-    if (!newsletterWebhookUrl) {
-      showToast('Email delivery is not configured yet. Please try again later.', 'error')
-      return
-    }
-
-    newsletterBtn.textContent = 'Sending...'
-    newsletterBtn.disabled = true
-
-    try {
-      if (supabase) {
-        const { error } = await supabase.from('subscribers').insert([{ email }])
-        if (error && error.code !== '23505') throw error
-      }
-
-      const response = await fetch(newsletterWebhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          source: 'weekly-pots-workout-plan',
-          campaign: '7-day-plan'
-        })
-      })
-
-      if (!response.ok) throw new Error('EMAIL_DELIVERY_FAILED')
-
-      showToast('Your 7-day plan has been emailed!', 'success')
-      newsletterInput.value = ''
-    } catch (error) {
-      showToast('Something went wrong. Try again.', 'error')
-      console.error(error)
-    } finally {
-      newsletterBtn.textContent = 'Send My Free Plan →'
-      newsletterBtn.disabled = false
-    }
-  })
-}
-
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
 
 // --- Toast notification ---
 function showToast(message, type = 'success') {
