@@ -18,6 +18,11 @@ const newsletterInput = document.getElementById('newsletter-input')
 
 if (newsletterBtn && newsletterInput) {
   newsletterBtn.addEventListener('click', async () => {
+    if (!supabase) {
+      showToast('Newsletter is temporarily unavailable. Please try again later.', 'error')
+      return
+    }
+
     const email = newsletterInput.value.trim()
     if (!email || !email.includes('@')) {
       showToast('Please enter a valid email.', 'error')
