@@ -52,6 +52,7 @@
   .filter-btn{background:transparent;border:1px solid var(--border);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--muted);transition:all 0.2s}
   .filter-btn.active,.filter-btn:hover{background:var(--forest);color:#fff;border-color:var(--forest)}
   .section-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:300;margin-bottom:0.3rem}
+  #workouts{scroll-margin-top:80px}
   .section-sub{color:var(--muted);font-size:0.85rem;margin-bottom:1.2rem}
 
   .workout-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -134,7 +135,7 @@
 <nav>
   <div class="logo">Stand<span>Strong</span> <span style="font-size:0.7rem;opacity:0.5;font-family:'DM Sans',sans-serif;letter-spacing:0.05em">POTS FITNESS</span></div>
   <ul class="nav-links">
-    <li><a href="#">Workouts</a></li>
+    <li><a href="#workouts">Workouts</a></li>
     <li><a href="#">POTS 101</a></li>
     <li><a href="#">Gear</a></li>
     <li><a href="#">Community</a></li>
@@ -187,7 +188,7 @@
       <button class="filter-btn" data-filter="strength">Strength</button>
     </div>
 
-    <h2 class="section-title">Featured Programs</h2>
+    <h2 id="workouts" class="section-title">Featured Programs</h2>
     <p class="section-sub">All workouts created in collaboration with dysautonomia-specialized physical therapists.</p>
 
     <div class="workout-grid" id="workout-grid">
