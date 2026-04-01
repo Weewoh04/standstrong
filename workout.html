@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout — StandStrong POTS Fitness</title>
+<meta name="description" content="POTS-specialized workout. Evidence-based, PT-designed exercise programs for Postural Orthostatic Tachycardia Syndrome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#faf7f2;--forest:#1a3a2a;--sage:#4a7c59;--mint:#c8e6d0;--gold:#d4a853;--warm:#f5ede0;
+    --text:#1a1a18;--muted:#6b7066;--border:#e0dbd2;
+  }
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+
+  nav{background:var(--forest);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
+  .logo{font-family:'Fraunces',serif;color:#fff;font-size:1.3rem;font-weight:500;letter-spacing:-0.02em;text-decoration:none}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:1.5rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.03em;transition:color 0.2s}
+  .nav-links a:hover{color:#fff}
+  .nav-back{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;display:flex;align-items:center;gap:0.4rem}
+  .nav-back:hover{color:#fff}
+
+  .workout-hero{background:var(--forest);color:#fff;padding:3rem 2rem}
+  .workout-hero-inner{max-width:800px;margin:0 auto}
+  .breadcrumb{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.06em}
+  .breadcrumb a{color:rgba(255,255,255,0.45);text-decoration:none}
+  .breadcrumb a:hover{color:#fff}
+  .workout-tag{display:inline-block;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;padding:0.25rem 0.8rem;border-radius:50px;margin-bottom:0.8rem;font-weight:500}
+  .workout-hero h1{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:300;line-height:1.2;margin-bottom:0.8rem}
+  .workout-hero p{color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:560px;margin-bottom:1.5rem}
+  .meta-pills{display:flex;gap:0.8rem;flex-wrap:wrap}
+  .pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);padding:0.3rem 0.9rem;border-radius:50px;font-size:0.78rem;color:rgba(255,255,255,0.8)}
+
+  .main-wrap{max-width:800px;margin:2rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 260px;gap:2rem}
+
+  .warning-box{background:#fff8e1;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:0.83rem;line-height:1.6;color:#5a4a1a}
+  .warning-box strong{display:block;margin-bottom:0.2rem;font-size:0.85rem}
+
+  .section-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.8rem;font-weight:500}
+  .equipment-list{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+  .equip-tag{background:#fff;border:1px solid var(--border);border-radius:8px;padding:0.35rem 0.8rem;font-size:0.8rem;color:var(--text)}
+
+  .exercise-list{margin-bottom:2rem}
+  .exercise-item{background:#fff;border-radius:14px;border:1px solid var(--border);margin-bottom:0.8rem;overflow:hidden}
+  .exercise-header{padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;cursor:pointer;user-select:none}
+  .exercise-num{width:32px;height:32px;border-radius:50%;background:var(--mint);color:var(--forest);display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:500;flex-shrink:0}
+  .exercise-name{font-weight:500;font-size:0.95rem;flex:1}
+  .exercise-time{font-size:0.78rem;color:var(--muted);white-space:nowrap}
+  .exercise-chevron{font-size:0.7rem;color:var(--muted);transition:transform 0.2s}
+  .exercise-item.open .exercise-chevron{transform:rotate(180deg)}
+  .exercise-body{padding:0 1.2rem 1.2rem;font-size:0.83rem;color:var(--muted);line-height:1.7;display:none}
+  .exercise-item.open .exercise-body{display:block}
+  .exercise-tips{margin-top:0.6rem;padding:0.7rem 0.9rem;background:var(--cream);border-radius:8px;font-size:0.8rem}
+  .exercise-tips strong{color:var(--forest);font-size:0.78rem}
+
+  .phase-info{background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.2rem;margin-bottom:1.5rem}
+  .phase-steps{list-style:none;counter-reset:steps}
+  .phase-steps li{counter-increment:steps;padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.83rem;color:var(--muted);display:flex;gap:0.8rem;align-items:flex-start}
+  .phase-steps li:last-child{border-bottom:none}
+  .phase-steps li::before{content:counter(steps);background:var(--sage);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:500;flex-shrink:0;margin-top:2px}
+
+  .complete-btn{width:100%;background:var(--sage);color:#fff;border:none;padding:0.9rem;border-radius:12px;font-size:0.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;margin-bottom:1rem;transition:background 0.2s}
+  .complete-btn:hover{background:var(--forest)}
+  .complete-btn.done{background:#2e7d32}
+
+  .next-card{background:var(--forest);color:#fff;border-radius:14px;padding:1.2rem;text-align:center;margin-bottom:1.2rem}
+  .next-card p{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.06em}
+  .next-card h4{font-family:'Fraunces',serif;font-size:1rem;font-weight:300;margin-bottom:0.8rem}
+  .next-card a{background:var(--gold);color:var(--forest);text-decoration:none;padding:0.4rem 1.2rem;border-radius:50px;font-size:0.78rem;font-weight:500;display:inline-block}
+
+  .sidebar-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:1.1rem;margin-bottom:1.1rem}
+  .sidebar-title{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;color:var(--forest)}
+
+  .affiliate-item{display:flex;align-items:center;gap:0.7rem;padding:0.55rem 0;border-bottom:1px solid var(--border)}
+  .affiliate-item:last-child{border-bottom:none}
+  .aff-icon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+  .aff-info{flex:1}
+  .aff-name{font-size:0.8rem;font-weight:500;color:var(--text)}
+  .aff-desc{font-size:0.7rem;color:var(--muted)}
+  .aff-link{font-size:0.7rem;color:var(--sage);text-decoration:none;font-weight:500;white-space:nowrap}
+
+  .sidebar-ad{background:var(--forest);color:#fff;border-radius:14px;padding:1.2rem;text-align:center;margin-bottom:1.1rem}
+  .ad-label{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.4);margin-bottom:0.4rem}
+  .sidebar-ad h4{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:300;margin-bottom:0.3rem}
+  .sidebar-ad p{font-size:0.72rem;color:rgba(255,255,255,0.6);margin-bottom:0.8rem}
+  .sidebar-ad-btn{background:var(--gold);color:var(--forest);border:none;padding:0.4rem 1.1rem;border-radius:50px;font-size:0.75rem;cursor:pointer;font-weight:500;font-family:'DM Sans',sans-serif}
+
+  .hr-zones{margin-bottom:1.5rem}
+  .hr-zone-row{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.5rem;font-size:0.8rem}
+  .hr-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+  .hr-label{flex:1;color:var(--text)}
+  .hr-range{color:var(--muted);font-size:0.75rem}
+
+  footer{background:var(--forest);color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;font-size:0.75rem;margin-top:3rem}
+  footer a{color:rgba(255,255,255,0.5);text-decoration:none}
+
+  @media(max-width:700px){
+    .main-wrap{grid-template-columns:1fr;padding:0 1rem}
+    .workout-hero h1{font-size:1.8rem}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Stand<span>Strong</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Workouts</a></li>
+    <li><a href="#">POTS 101</a></li>
+    <li><a href="#">Gear</a></li>
+  </ul>
+  <a href="index.html" class="nav-back">← All Workouts</a>
+</nav>
+
+<div class="workout-hero">
+  <div class="workout-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html">Workouts</a> › <span id="hero-breadcrumb">Loading...</span></div>
+    <span class="workout-tag" id="hero-tag">Loading</span>
+    <h1 id="hero-title">Loading workout...</h1>
+    <p id="hero-desc"></p>
+    <div class="meta-pills" id="hero-meta"></div>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <main>
+    <div class="warning-box">
+      <strong>⚠️ Before you begin</strong>
+      Stop immediately if you feel lightheaded, chest pain, or heart rate rises more than 30 BPM from baseline. Return to a lying position and rest. Never push through syncope symptoms.
+    </div>
+
+    <div class="section-label">Equipment needed</div>
+    <div class="equipment-list" id="equipment-list"></div>
+
+    <div class="section-label">How to do this workout</div>
+    <div class="phase-info">
+      <ol class="phase-steps" id="phase-steps"></ol>
+    </div>
+
+    <div class="section-label">Exercises</div>
+    <div class="exercise-list" id="exercise-list"></div>
+
+    <div class="section-label">Heart rate zones for this workout</div>
+    <div class="hr-zones">
+      <div class="hr-zone-row"><div class="hr-dot" style="background:#4a7c59"></div><div class="hr-label">Target zone</div><div class="hr-range" id="hr-target">—</div></div>
+      <div class="hr-zone-row"><div class="hr-dot" style="background:#d4a853"></div><div class="hr-label">Caution — slow down</div><div class="hr-range" id="hr-caution">—</div></div>
+      <div class="hr-zone-row"><div class="hr-dot" style="background:#c0392b"></div><div class="hr-label">Stop — return to rest</div><div class="hr-range" id="hr-stop">—</div></div>
+    </div>
+
+    <button class="complete-btn" id="complete-btn" onclick="markComplete()">✓ Mark Workout Complete</button>
+  </main>
+
+  <aside>
+    <div class="next-card" id="next-card"></div>
+
+    <div class="sidebar-ad">
+      <div class="ad-label">Advertisement</div>
+      <h4 id="ad-title">Garmin HR Monitor</h4>
+      <p id="ad-desc">Stay in your safe zone with real-time heart rate tracking</p>
+      <button class="sidebar-ad-btn">View on Amazon →</button>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Gear for this workout</div>
+      <div id="gear-list"></div>
+    </div>
+
+    <div class="sidebar-card" style="background:var(--warm);border:none">
+      <div class="sidebar-title" style="font-size:0.85rem">💡 POTS tip</div>
+      <p id="sidebar-tip" style="font-size:0.8rem;color:var(--muted);line-height:1.6"></p>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div style="margin-bottom:0.5rem">⚠️ Medical disclaimer: StandStrong is for informational purposes only. Always consult your specialist before exercising.</div>
+  <div>© 2026 StandStrong POTS Fitness · <a href="#">Privacy</a> · <a href="#">Affiliate Disclosure</a></div>
+</footer>
+
+<script>
+const workouts = {
+  'leg-pump': {
+    title: 'Leg Pump Recumbent Circuit',
+    tag: 'Recumbent · Phase 1',
+    tagColor: '#e3f2fd', tagText: '#1565c0',
+    desc: 'Calf raises, ankle pumps, and leg compressions done lying flat — proven to improve venous return and reduce pre-syncope episodes.',
+    meta: ['⏱ 12 min', '🛏 Lying down', '❤️ Low intensity', '📅 Daily'],
+    equipment: ['Yoga mat', 'Pillow', 'HR monitor'],
+    steps: [
+      'Lie flat on your back. Check your resting HR and note it.',
+      'Do a 2-minute warmup: slow deep breaths, gentle ankle circles.',
+      'Work through each exercise in order. Rest 30s between sets.',
+      'If HR rises 30+ BPM above baseline — stop and rest.',
+      'Cool down: 2 minutes of slow breathing lying still.'
+    ],
+    exercises: [
+      { name: 'Ankle Pumps', time: '2 min', desc: 'Flex and point your feet repeatedly, as if pressing a gas pedal. This activates the calf muscle pump to push blood back toward the heart.', tips: 'Keep movements smooth and controlled. Aim for 1 pump per second.' },
+      { name: 'Calf Raises (lying)', time: '3 sets × 15 reps', desc: 'While lying flat, dorsiflex both feet (pull toes toward you) then plantarflex (point toes away). This contracts the gastrocnemius and soleus muscles.', tips: 'Hold each contraction for 2 seconds for maximum venous return benefit.' },
+      { name: 'Leg Compressions', time: '2 min each leg', desc: 'Squeeze your thigh muscles tightly for 5 seconds, then release. Works the large venous reservoir in the quadriceps.', tips: 'Breathe normally throughout. Do not hold your breath.' },
+      { name: 'Hip Abduction', time: '2 sets × 12 reps', desc: 'Lying on your back, slide one leg out to the side and back. Engages hip stabilizers without raising heart rate significantly.', tips: 'Keep movements slow and controlled — no momentum.' },
+      { name: 'Straight Leg Raises', time: '2 sets × 10 reps', desc: 'Keeping one leg bent for back support, slowly raise the straight leg to 45° and lower. Builds hip flexor and lower abdominal strength.', tips: 'If this raises HR too much, skip and return to ankle pumps.' },
+    ],
+    hr: { target: 'Baseline to baseline +20 BPM', caution: 'Baseline +21–29 BPM', stop: 'Baseline +30 BPM or above' },
+    gear: [
+      { icon: '🧦', name: 'Compression Stockings', desc: '20–30mmHg, wear during workout', bg: '#e8f5e9' },
+      { icon: '⌚', name: 'HR Monitor', desc: 'Garmin or Polar recommended', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Compression Socks for POTS', desc: 'Medically rated 20-30mmHg — wear during all Phase 1 workouts' },
+    tip: 'During recumbent exercises, wearing compression stockings (even while lying down) has been shown to reduce symptom severity when you eventually stand up.',
+    next: { title: 'Diaphragmatic Breathing & Pacing', id: 'breathing' }
+  },
+
+  'breathing': {
+    title: 'Diaphragmatic Breathing & Pacing',
+    tag: 'Breathing · All Levels',
+    tagColor: '#e8f5e9', tagText: '#2e7d32',
+    desc: 'Controlled diaphragmatic breathing to activate the parasympathetic nervous system, reduce heart rate variability, and manage symptom flares.',
+    meta: ['⏱ 8 min', '🛋 Any position', '❤️ Rest level', '📅 Daily'],
+    equipment: ['No equipment needed', 'Optional: timer'],
+    steps: [
+      'Find a comfortable position — lying, seated, or reclined.',
+      'Place one hand on your chest, one on your belly.',
+      'Breathe so only your belly hand rises — chest stays still.',
+      'Follow the pattern for each exercise below.',
+      'End with 2 minutes of natural breathing and HR check.'
+    ],
+    exercises: [
+      { name: '4-7-8 Breathing', time: '4 rounds', desc: 'Inhale for 4 counts, hold for 7, exhale for 8. This technique activates the vagus nerve and rapidly reduces sympathetic nervous system activity.', tips: 'If 7-count hold feels too long, try 4-4-8 to start.' },
+      { name: 'Box Breathing', time: '4 min', desc: 'Inhale 4 counts, hold 4, exhale 4, hold 4. Used by athletes and cardiac patients to stabilize heart rate and reduce anxiety-driven tachycardia.', tips: 'Visualize tracing the sides of a square as you breathe.' },
+      { name: 'Pursed Lip Breathing', time: '3 min', desc: 'Inhale through the nose for 2 counts, exhale slowly through pursed lips for 4 counts. Increases oxygen exchange and slows respiratory rate.', tips: 'Exhale should feel like you are gently fogging a mirror.' },
+      { name: 'Diaphragmatic Reset', time: '2 min', desc: 'Natural breathing with focus on belly expansion. Scan body for tension, particularly in the neck and shoulders which tighten during POTS flares.', tips: 'This is your go-to technique during any symptom flare — do it anywhere.' },
+    ],
+    hr: { target: 'Resting HR or below', caution: 'Any rise above resting HR', stop: 'Chest tightness or lightheadedness' },
+    gear: [
+      { icon: '📱', name: 'Breathing App', desc: 'Othership or Calm for guided sessions', bg: '#f3e5f5' },
+      { icon: '⌚', name: 'HR Monitor', desc: 'Track vagal tone improvement over time', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Polar H10 Heart Rate Monitor', desc: 'Chest strap accuracy — see real-time HRV improvements from breathing practice' },
+    tip: 'Daily breathing practice for 8 minutes has been shown in studies to improve heart rate variability (HRV) — a key marker of autonomic nervous system health in POTS patients.',
+    next: { title: 'Seated Core Stability Series', id: 'seated-core' }
+  },
+
+  'seated-core': {
+    title: 'Seated Core Stability Series',
+    tag: 'Seated · Phase 2',
+    tagColor: '#fce4ec', tagText: '#880e4f',
+    desc: 'Build core and postural strength from a seated position — targeting the muscles that help maintain upright posture without triggering orthostatic symptoms.',
+    meta: ['⏱ 18 min', '🪑 Chair or bench', '❤️ Light', '📅 3x per week'],
+    equipment: ['Sturdy chair (no wheels)', 'HR monitor', 'Resistance band (optional)'],
+    steps: [
+      'Use a firm chair with feet flat on the floor.',
+      'Check resting HR before starting. Have water nearby.',
+      'Sit tall — imagine a string pulling the crown of your head up.',
+      'Rest 45 seconds between each exercise.',
+      'If lightheaded, recline the chair back or lower to floor immediately.'
+    ],
+    exercises: [
+      { name: 'Seated Marching', time: '2 min', desc: 'Alternate lifting knees while seated, like slow marching. Activates hip flexors and core stabilizers while keeping you seated safely.', tips: 'Keep your spine tall throughout. Do not lean back into the chair.' },
+      { name: 'Seated Torso Rotation', time: '2 sets × 10 reps', desc: 'Arms crossed over chest, rotate your torso left and right slowly. Builds rotational core strength and spinal mobility.', tips: 'Move from your waist, not your shoulders. Keep hips still.' },
+      { name: 'Seated Forward Lean', time: '3 sets × 8 reps', desc: 'Hinge forward from the hips (not the waist) keeping back flat, then return upright. Strengthens the erector spinae — critical for orthostatic posture.', tips: 'This is the most important exercise for standing tolerance. Do not rush it.' },
+      { name: 'Seated Leg Extensions', time: '2 sets × 12 reps each', desc: 'Extend one leg straight, hold 2 seconds, lower slowly. Works the quadriceps venous pump while keeping you safely seated.', tips: 'Point toes slightly upward at full extension for added calf engagement.' },
+      { name: 'Shoulder Blade Squeezes', time: '3 sets × 15 reps', desc: 'Pull shoulder blades together and down, hold 3 seconds. Counteracts the forward-slouch posture common in POTS patients.', tips: 'Think about putting your shoulder blades into your back pockets.' },
+    ],
+    hr: { target: 'Baseline to +25 BPM', caution: 'Baseline +26–34 BPM', stop: 'Baseline +35 BPM or dizziness' },
+    gear: [
+      { icon: '🪑', name: 'Lumbar Support Cushion', desc: 'Supports posture during seated exercises', bg: '#fff3e0' },
+      { icon: '💪', name: 'Light Resistance Bands', desc: 'Add gentle resistance to leg extensions', bg: '#e8f5e9' },
+    ],
+    ad: { title: 'Resistance Bands Set (5-pack)', desc: 'Light loop bands perfect for seated Phase 2 exercises — PT recommended' },
+    tip: 'Seated exercise is a critical bridge phase for POTS. Rushing to standing exercises too soon is the #1 reason people plateau — invest time in Phase 2.',
+    next: { title: 'Lower Body Blood Pool Prevention', id: 'lower-body' }
+  },
+
+  'lower-body': {
+    title: 'Lower Body Blood Pool Prevention',
+    tag: 'Strength · Phase 3',
+    tagColor: '#fff3e0', tagText: '#e65100',
+    desc: 'Resistance band lower-body exercises to strengthen the venous muscle pump — the most impactful long-term intervention for POTS symptoms.',
+    meta: ['⏱ 22 min', '🏋️ Light resistance', '❤️ Moderate', '📅 3x per week'],
+    equipment: ['Resistance bands (light-medium)', 'Chair for balance', 'HR monitor', 'Compression stockings'],
+    steps: [
+      'Put on compression stockings before starting.',
+      'Warm up 3 minutes: seated ankle pumps and calf raises.',
+      'Stand near a chair or wall for balance support at all times.',
+      'Rest 60 seconds between sets. Monitor HR every 2 minutes.',
+      'If HR exceeds target, sit down immediately — do not push through.'
+    ],
+    exercises: [
+      { name: 'Standing Calf Raises', time: '3 sets × 20 reps', desc: 'Rise onto toes slowly, lower even more slowly (3-count down). The eccentric phase is where the venous pump benefit is greatest.', tips: 'Hold a chair lightly for balance only — do not lean on it.' },
+      { name: 'Resistance Band Squats', time: '2 sets × 10 reps', desc: 'Band just above knees, squat to chair height and return. Activates the largest muscle groups (quads, glutes) maximizing venous return with each contraction.', tips: 'Keep weight in heels. Go only as deep as comfortable without dizziness.' },
+      { name: 'Band Side Steps', time: '2 sets × 10 steps each direction', desc: 'Band above ankles, step sideways against resistance. Strengthens hip abductors and the deep venous network of the outer thigh.', tips: 'Keep a slight bend in the knees throughout. Do not drag feet — pick them up.' },
+      { name: 'Single Leg Balance', time: '3 × 20 seconds each side', desc: 'Stand on one foot near a chair. Trains proprioception and orthostatic reflexes — directly improves standing tolerance over time.', tips: 'Gaze at a fixed point to help balance. Touch chair only if needed.' },
+      { name: 'Standing Hip Hinge', time: '2 sets × 12 reps', desc: 'Hinge forward at hips, back flat, then return upright. Strengthens the posterior chain which is consistently weak in deconditioned POTS patients.', tips: 'Think of pushing your hips back to the wall behind you, not bending forward.' },
+    ],
+    hr: { target: 'Baseline to +30 BPM', caution: 'Baseline +31–39 BPM', stop: 'Baseline +40 BPM, dizziness, or chest tightness' },
+    gear: [
+      { icon: '💪', name: 'Resistance Bands', desc: 'Medium loop bands, 15–25 lbs resistance', bg: '#e8f5e9' },
+      { icon: '🧦', name: 'Compression Stockings', desc: 'Required for all Phase 3 standing work', bg: '#fce4ec' },
+      { icon: '⌚', name: 'HR Monitor', desc: 'Real-time HR essential at this phase', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'LMNT Electrolyte Packets', desc: 'High-sodium formula recommended for POTS — drink before Phase 3 workouts' },
+    tip: 'Wear compression stockings from the moment you wake up on workout days — not just during exercise. This pre-loads your venous system before you even begin.',
+    next: { title: 'Tilt Training Protocol', id: 'tilt-training' }
+  },
+
+  'tilt-training': {
+    title: 'Tilt Training Protocol',
+    tag: 'Standing · Phase 3',
+    tagColor: '#fff3e0', tagText: '#e65100',
+    desc: 'Progressive wall-supported standing to recondition baroreceptors and train orthostatic tolerance — the clinical gold standard for POTS rehab.',
+    meta: ['⏱ 15 min', '🧱 Wall support', '❤️ Moderate', '📅 Daily if tolerated'],
+    equipment: ['Flat wall space', 'HR monitor', 'Compression stockings', 'Timer'],
+    steps: [
+      'Wear compression stockings and drink 500ml of water 30 min before.',
+      'Stand with your back flat against the wall, heels 6 inches from the wall.',
+      'Start with 5 minutes. Increase by 2 minutes each week as tolerated.',
+      'Perform small calf raises or leg squeezes every 60 seconds to prevent pooling.',
+      'Sit down slowly — do not drop suddenly — if symptoms appear.'
+    ],
+    exercises: [
+      { name: 'Passive Wall Stand', time: 'Target time (start 5 min)', desc: 'Stand with back flat against wall, heels slightly out. The wall provides feedback and safety. Your body is learning to regulate BP in the upright position.', tips: 'Track your time each session. Progress is measured in minutes of tolerance, not reps.' },
+      { name: 'Wall Calf Pulses', time: 'Every 60 seconds, 10 reps', desc: 'While against the wall, pulse both calves 10 times. This prevents blood pooling in the lower legs during sustained standing.', tips: 'Keep your back in contact with the wall throughout.' },
+      { name: 'Wall Leg Lifts', time: '5 reps each leg every 2 min', desc: 'While standing at the wall, slowly lift one knee to hip height and lower. Maintains muscle pump activity during tilt training.', tips: 'Use fingertips against wall for light balance support only.' },
+      { name: 'Controlled Sit-to-Stand', time: '3 reps at end of session', desc: 'From a chair, stand slowly over 5 seconds, hold 30 seconds, sit over 5 seconds. Directly trains baroreceptor response to position changes.', tips: 'This is the most functionally important exercise — do it last when muscles are warm.' },
+    ],
+    hr: { target: 'Baseline to +30 BPM', caution: 'Baseline +31–39 BPM', stop: 'Baseline +40 BPM, pre-syncope, or vision changes' },
+    gear: [
+      { icon: '🧦', name: 'Compression Stockings', desc: 'Required — 20–30mmHg knee-high', bg: '#fce4ec' },
+      { icon: '💧', name: 'Electrolyte Drink', desc: 'LMNT or Nuun 30 min before session', bg: '#e3f2fd' },
+      { icon: '⌚', name: 'HR Monitor', desc: 'Real-time monitoring is essential', bg: '#e8f5e9' },
+    ],
+    ad: { title: 'Withings BPM Connect', desc: 'Track both HR and blood pressure changes during tilt training at home' },
+    tip: 'Tilt training works by repeatedly stressing the orthostatic reflex in a controlled setting. Consistency matters more than duration — 5 minutes daily beats 30 minutes once a week.',
+    next: { title: 'Pool & Aquatic Intro Flow', id: 'aquatic' }
+  },
+
+  'aquatic': {
+    title: 'Pool & Aquatic Intro Flow',
+    tag: 'Recumbent · Phase 1',
+    tagColor: '#e3f2fd', tagText: '#1565c0',
+    desc: 'Shallow-water exercises using hydrostatic pressure to naturally compress blood pooling — one of the most tolerated forms of cardio for severe POTS.',
+    meta: ['⏱ 25 min', '💧 Pool (waist-deep)', '❤️ Low–moderate', '📅 2–3x per week'],
+    equipment: ['Access to a pool', 'Water shoes (optional)', 'Waterproof HR monitor', 'Pool noodle (optional)'],
+    steps: [
+      'Enter the pool slowly using the steps — never jump in.',
+      'Stay in waist-to-chest-deep water where hydrostatic pressure is highest.',
+      'Warm up 5 minutes walking slowly back and forth.',
+      'Keep movements controlled — water adds resistance in all directions.',
+      'Exit slowly. Rest seated for 5 minutes before standing fully.'
+    ],
+    exercises: [
+      { name: 'Water Walking', time: '5 min', desc: 'Walk slowly back and forth in waist-deep water. The hydrostatic pressure of water acts like a full-body compression garment, dramatically reducing blood pooling.', tips: 'Swing your arms naturally. The resistance of water gives gentle cardiovascular benefit without overloading the heart.' },
+      { name: 'Pool Calf Raises', time: '3 sets × 20 reps', desc: 'Stand at pool wall for support, rise onto toes and lower slowly. Water reduces fall risk while still providing the venous pump benefit of the exercise.', tips: 'The buoyancy reduces spinal load — good for those who also have joint hypermobility (common in POTS).' },
+      { name: 'Aqua Leg Swings', time: '2 sets × 12 reps each leg', desc: 'Hold pool wall, swing leg forward and back through the water. Builds hip flexor and extensor strength with the added resistance of water.', tips: 'Keep core engaged and hips square — do not twist your torso.' },
+      { name: 'Pool Noodle Float Rest', time: '3 min between sets', desc: 'Rest floating horizontally with a pool noodle under your arms. The horizontal position restores venous return between exercises.', tips: 'This is your active recovery. It counts as part of the workout — do not skip it.' },
+      { name: 'Water Jogging (in place)', time: '2 × 90 seconds', desc: 'Jog in place in chest-deep water. Provides cardiovascular conditioning at a much lower HR than land-based jogging due to hydrostatic pressure support.', tips: 'Only add this once you can complete all other exercises without symptoms.' },
+    ],
+    hr: { target: 'Baseline to +25 BPM (water naturally limits this)', caution: 'Baseline +26–34 BPM', stop: 'Baseline +35 BPM or any pre-syncope feeling' },
+    gear: [
+      { icon: '💧', name: 'Waterproof HR Monitor', desc: 'Garmin Swim 2 or Apple Watch Ultra', bg: '#e3f2fd' },
+      { icon: '🥿', name: 'Water Shoes', desc: 'Prevent slipping on pool floor', bg: '#e8f5e9' },
+    ],
+    ad: { title: 'Garmin Swim 2 Watch', desc: 'Waterproof HR monitoring — essential for tracking safe zones during aquatic POTS workouts' },
+    tip: 'Aquatic exercise is often the gateway workout for severe POTS patients who cannot tolerate any land-based upright exercise. The water does the compression work for you.',
+    next: { title: 'Leg Pump Recumbent Circuit', id: 'leg-pump' }
+  }
+}
+
+function getWorkoutId() {
+  const params = new URLSearchParams(window.location.search)
+  return params.get('w') || 'leg-pump'
+}
+
+function markComplete() {
+  const btn = document.getElementById('complete-btn')
+  btn.textContent = '✓ Workout Completed!'
+  btn.classList.add('done')
+  const key = 'completed_' + getWorkoutId()
+  localStorage.setItem(key, new Date().toISOString())
+}
+
+function render() {
+  const id = getWorkoutId()
+  const w = workouts[id]
+  if (!w) { document.body.innerHTML = '<p style="padding:2rem">Workout not found.</p>'; return; }
+
+  document.title = w.title + ' — StandStrong POTS Fitness'
+  document.getElementById('hero-breadcrumb').textContent = w.title
+  document.getElementById('hero-title').textContent = w.title
+  document.getElementById('hero-desc').textContent = w.desc
+
+  const tag = document.getElementById('hero-tag')
+  tag.textContent = w.tag
+  tag.style.background = w.tagColor
+  tag.style.color = w.tagText
+
+  document.getElementById('hero-meta').innerHTML = w.meta.map(m => `<span class="pill">${m}</span>`).join('')
+  document.getElementById('equipment-list').innerHTML = w.equipment.map(e => `<span class="equip-tag">${e}</span>`).join('')
+  document.getElementById('phase-steps').innerHTML = w.steps.map(s => `<li><span>${s}</span></li>`).join('')
+
+  document.getElementById('exercise-list').innerHTML = w.exercises.map((ex, i) => `
+    <div class="exercise-item" id="ex-${i}">
+      <div class="exercise-header" onclick="toggleEx(${i})">
+        <div class="exercise-num">${i + 1}</div>
+        <div class="exercise-name">${ex.name}</div>
+        <div class="exercise-time">${ex.time}</div>
+        <div class="exercise-chevron">▼</div>
+      </div>
+      <div class="exercise-body">
+        <p>${ex.desc}</p>
+        <div class="exercise-tips"><strong>💡 Form tip:</strong> ${ex.tips}</div>
+      </div>
+    </div>
+  `).join('')
+
+  document.getElementById('hr-target').textContent = w.hr.target
+  document.getElementById('hr-caution').textContent = w.hr.caution
+  document.getElementById('hr-stop').textContent = w.hr.stop
+  document.getElementById('ad-title').textContent = w.ad.title
+  document.getElementById('ad-desc').textContent = w.ad.desc
+  document.getElementById('sidebar-tip').textContent = w.tip
+
+  document.getElementById('gear-list').innerHTML = w.gear.map(g => `
+    <div class="affiliate-item">
+      <div class="aff-icon" style="background:${g.bg}">${g.icon}</div>
+      <div class="aff-info"><div class="aff-name">${g.name}</div><div class="aff-desc">${g.desc}</div></div>
+      <a href="#" class="aff-link">Shop →</a>
+    </div>
+  `).join('')
+
+  const next = w.next
+  document.getElementById('next-card').innerHTML = `
+    <p>Up next</p>
+    <h4>${next.title}</h4>
+    <a href="workout.html?w=${next.id}">Start Workout →</a>
+  `
+
+  const done = localStorage.getItem('completed_' + id)
+  if (done) {
+    const btn = document.getElementById('complete-btn')
+    btn.textContent = '✓ Workout Completed!'
+    btn.classList.add('done')
+  }
+
+  document.querySelectorAll('.exercise-item')[0]?.classList.add('open')
+}
+
+function toggleEx(i) {
+  const el = document.getElementById('ex-' + i)
+  el.classList.toggle('open')
+}
+
+render()
+</script>
+</body>
+</html>
