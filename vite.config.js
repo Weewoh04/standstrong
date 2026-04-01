@@ -9,7 +9,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        workout: resolve(__dirname, 'workout.html')
+        workout: resolve(__dirname, 'workout.html'),
+        pots101: resolve(__dirname, 'pots-101.html')
       }
     }
   }
