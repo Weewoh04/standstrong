@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gear | StandStrong</title>
+<meta name="description" content="Recommended POTS-friendly gear for compression, heart-rate tracking, hydration, and low-orthostatic training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#faf7f2;--forest:#1a3a2a;--sage:#4a7c59;--mint:#c8e6d0;--gold:#d4a853;--warm:#f5ede0;
+    --text:#1a1a18;--muted:#6b7066;--border:#e0dbd2;
+  }
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+  nav{background:var(--forest);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
+  .logo{font-family:'Fraunces',serif;color:#fff;font-size:1.3rem;font-weight:500;letter-spacing:-0.02em;text-decoration:none}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:1.5rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;font-weight:400;letter-spacing:0.03em;text-transform:uppercase;transition:color 0.2s}
+  .nav-links a:hover,.nav-links a.active{color:#fff}
+
+  .hero-wrap{background:var(--forest)}
+  .hero{max-width:1100px;margin:0 auto;padding:3.6rem 2rem 3rem;color:#fff;display:grid;grid-template-columns:1.1fr 0.9fr;gap:1.5rem;align-items:center}
+  .hero-tag{background:var(--sage);display:inline-block;color:#fff;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:999px;margin-bottom:0.9rem}
+  .hero h1{font-family:'Fraunces',serif;font-size:2.7rem;font-weight:300;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.9rem}
+  .hero p{color:rgba(255,255,255,0.75);max-width:560px}
+  .hero-note{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);padding:1rem;border-radius:14px}
+  .hero-note h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;margin-bottom:0.5rem}
+  .hero-note p{font-size:0.84rem}
+
+  .main-wrap{max-width:1100px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
+  .section{margin-bottom:1.5rem}
+  .section h2{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:400;color:var(--forest);margin-bottom:0.35rem}
+  .section p{font-size:0.88rem;color:var(--muted);margin-bottom:0.8rem}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+  .gear-card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:1rem;display:flex;flex-direction:column;gap:0.55rem}
+  .gear-top{display:flex;align-items:center;gap:0.7rem}
+  .gear-icon{width:38px;height:38px;border-radius:10px;background:var(--mint);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
+  .gear-title{font-size:0.94rem;font-weight:500}
+  .gear-sub{font-size:0.77rem;color:var(--muted)}
+  .gear-copy{font-size:0.8rem;color:var(--muted)}
+  .badge{display:inline-block;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--warm);padding:0.22rem 0.5rem;border-radius:999px;font-weight:500}
+  .slot{font-size:0.73rem;color:var(--muted);background:var(--cream);border:1px dashed #c8b99a;border-radius:8px;padding:0.45rem 0.55rem}
+  .slot code{font-family:monospace}
+  .buy-btn{display:inline-block;align-self:flex-start;background:var(--forest);color:#fff;text-decoration:none;padding:0.4rem 1rem;border-radius:999px;font-size:0.76rem}
+
+  .aside-card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:1rem;margin-bottom:0.9rem}
+  .aside-card h3{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;color:var(--forest);margin-bottom:0.55rem}
+  .aside-card p{font-size:0.82rem;color:var(--muted);margin-bottom:0.6rem}
+  .aside-list{list-style:none}
+  .aside-list li{font-size:0.8rem;color:var(--muted);margin-bottom:0.45rem}
+  .aside-list a{text-decoration:none;color:var(--sage)}
+  .disclosure{background:var(--warm);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:0.8rem 0.9rem;font-size:0.78rem;color:#5a4a1a}
+  .disclosure strong{display:block;margin-bottom:0.25rem}
+
+  footer{background:var(--forest);color:rgba(255,255,255,0.6);text-align:center;padding:1.6rem;margin-top:2rem;font-size:0.78rem}
+  footer a{color:rgba(255,255,255,0.65);text-decoration:none}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .main-wrap{grid-template-columns:1fr}
+  }
+  @media(max-width:700px){
+    .nav-links{display:none}
+    .hero h1{font-size:2rem}
+    .card-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Stand<span>Strong</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#workouts">Workouts</a></li>
+    <li><a href="pots-101.html">POTS 101</a></li>
+    <li><a href="gear.html" class="active">Gear</a></li>
+  </ul>
+</nav>
+
+<div class="hero-wrap">
+  <section class="hero">
+    <div>
+      <span class="hero-tag">Recommended Tools</span>
+      <h1>POTS-Friendly Gear</h1>
+      <p>Use this page as your affiliate-ready catalog for products that support compression, hydration, heart-rate monitoring, and symptom-safe training progression.</p>
+    </div>
+    <div class="hero-note">
+      <h3>How to Use This Page</h3>
+      <p>Each product card includes a dedicated affiliate slot ID and a placeholder button. Replace each placeholder link with your final affiliate URL whenever you are ready to publish.</p>
+    </div>
+  </section>
+</div>
+
+<div class="main-wrap">
+  <main>
+    <section class="section">
+      <h2>Compression Essentials</h2>
+      <p>Priority gear for reducing lower-body blood pooling while upright.</p>
+      <div class="card-grid">
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">🧦</div><div><div class="gear-title">Graduated Compression Socks</div><div class="gear-sub">20-30 mmHg knee-high</div></div></div>
+          <span class="badge">Foundational</span>
+          <p class="gear-copy">A core daily tool for many POTS patients, especially before prolonged standing or workouts.</p>
+          <div class="slot" data-affiliate-slot="compression-socks-01">Affiliate slot: <code>compression-socks-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="compression-socks-01" aria-label="Affiliate link placeholder for compression socks">Affiliate Link Placeholder</a>
+        </article>
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">🩳</div><div><div class="gear-title">Abdominal Compression Shorts</div><div class="gear-sub">High-waist support option</div></div></div>
+          <span class="badge">High Impact</span>
+          <p class="gear-copy">Abdominal compression can be helpful for orthostatic symptoms beyond calf-only garments.</p>
+          <div class="slot" data-affiliate-slot="ab-compression-01">Affiliate slot: <code>ab-compression-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="ab-compression-01" aria-label="Affiliate link placeholder for compression shorts">Affiliate Link Placeholder</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Heart Rate Monitoring</h2>
+      <p>Monitoring keeps workouts in safe zones and helps identify overexertion early.</p>
+      <div class="card-grid">
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">⌚</div><div><div class="gear-title">Wrist-Based HR Watch</div><div class="gear-sub">All-day trend tracking</div></div></div>
+          <span class="badge">Daily Use</span>
+          <p class="gear-copy">Useful for pacing, symptom correlation, and logging baseline to standing heart-rate changes.</p>
+          <div class="slot" data-affiliate-slot="watch-hr-01">Affiliate slot: <code>watch-hr-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="watch-hr-01" aria-label="Affiliate link placeholder for HR watch">Affiliate Link Placeholder</a>
+        </article>
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">❤️</div><div><div class="gear-title">Chest Strap HR Monitor</div><div class="gear-sub">Higher accuracy option</div></div></div>
+          <span class="badge">Workout Focus</span>
+          <p class="gear-copy">Best choice for precise training sessions where heart-rate drift matters.</p>
+          <div class="slot" data-affiliate-slot="chest-strap-01">Affiliate slot: <code>chest-strap-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="chest-strap-01" aria-label="Affiliate link placeholder for chest strap">Affiliate Link Placeholder</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Hydration and Sodium Support</h2>
+      <p>Tools that make consistent fluid and electrolyte intake easier throughout the day.</p>
+      <div class="card-grid">
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">💧</div><div><div class="gear-title">Electrolyte Packets</div><div class="gear-sub">High-sodium formula</div></div></div>
+          <span class="badge">Daily Routine</span>
+          <p class="gear-copy">Convenient option for maintaining sodium strategy under clinician guidance.</p>
+          <div class="slot" data-affiliate-slot="electrolyte-01">Affiliate slot: <code>electrolyte-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="electrolyte-01" aria-label="Affiliate link placeholder for electrolytes">Affiliate Link Placeholder</a>
+        </article>
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">🧴</div><div><div class="gear-title">Large Insulated Bottle</div><div class="gear-sub">32-40 oz hydration support</div></div></div>
+          <span class="badge">Low Cost</span>
+          <p class="gear-copy">Simple adherence tool that helps keep hydration targets visible and consistent.</p>
+          <div class="slot" data-affiliate-slot="bottle-01">Affiliate slot: <code>bottle-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="bottle-01" aria-label="Affiliate link placeholder for insulated bottle">Affiliate Link Placeholder</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Low-Orthostatic Training Equipment</h2>
+      <p>Beginner-friendly equipment options for recumbent and phase-based progression.</p>
+      <div class="card-grid">
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">🚴</div><div><div class="gear-title">Recumbent Bike</div><div class="gear-sub">Phase 1-2 cardio option</div></div></div>
+          <span class="badge">Best Starter</span>
+          <p class="gear-copy">Supports conditioning with less orthostatic stress than upright cardio methods.</p>
+          <div class="slot" data-affiliate-slot="recumbent-bike-01">Affiliate slot: <code>recumbent-bike-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="recumbent-bike-01" aria-label="Affiliate link placeholder for recumbent bike">Affiliate Link Placeholder</a>
+        </article>
+        <article class="gear-card">
+          <div class="gear-top"><div class="gear-icon">💪</div><div><div class="gear-title">Loop Resistance Bands</div><div class="gear-sub">Phase 2-3 strength progression</div></div></div>
+          <span class="badge">Space Saving</span>
+          <p class="gear-copy">Useful for blood-pool prevention work and lower-body muscle pump training.</p>
+          <div class="slot" data-affiliate-slot="bands-01">Affiliate slot: <code>bands-01</code></div>
+          <a class="buy-btn" href="#" data-affiliate-link="bands-01" aria-label="Affiliate link placeholder for resistance bands">Affiliate Link Placeholder</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside>
+    <section class="aside-card">
+      <h3>Affiliate Setup Checklist</h3>
+      <ul class="aside-list">
+        <li>1. Replace each placeholder <code>href="#"</code> with your final affiliate URL.</li>
+        <li>2. Keep link labels transparent and accurate.</li>
+        <li>3. Test every outbound link after publishing.</li>
+        <li>4. Update product copy if model numbers change.</li>
+      </ul>
+    </section>
+
+    <section class="aside-card">
+      <h3>Quick Links</h3>
+      <ul class="aside-list">
+        <li><a href="pots-101.html">Read POTS 101</a></li>
+        <li><a href="index.html#workouts">Browse Workouts</a></li>
+        <li><a href="workout.html?w=leg-pump">Start Phase 1 Workout</a></li>
+      </ul>
+    </section>
+
+    <section class="disclosure">
+      <strong>Affiliate disclosure</strong>
+      This page is designed for affiliate links. You may earn a commission from qualifying purchases at no extra cost to users.
+    </section>
+  </aside>
+</div>
+
+<footer>
+  <div style="margin-bottom:0.4rem">&copy; 2026 StandStrong POTS Fitness</div>
+  <div><a href="index.html">Home</a> | <a href="index.html#workouts">Workouts</a> | <a href="pots-101.html">POTS 101</a></div>
+</footer>
+<script>
+  // Single source of truth for affiliate links on this page.
+  const AFFILIATE_LINKS = {
+    'compression-socks-01': '#',
+    'ab-compression-01': '#',
+    'watch-hr-01': '#',
+    'chest-strap-01': '#',
+    'electrolyte-01': '#',
+    'bottle-01': '#',
+    'recumbent-bike-01': '#',
+    'bands-01': '#'
+  }
+
+  document.querySelectorAll('[data-affiliate-link]').forEach(link => {
+    const slot = link.dataset.affiliateLink
+    const url = AFFILIATE_LINKS[slot]
+
+    if (!url) {
+      link.textContent = 'Link Not Configured'
+      link.setAttribute('aria-disabled', 'true')
+      link.style.opacity = '0.6'
+      link.style.pointerEvents = 'none'
+      return
+    }
+
+    link.href = url
+    if (url !== '#') {
+      link.target = '_blank'
+      link.rel = 'sponsored noopener noreferrer'
+      link.textContent = 'View Deal'
+    }
+  })
+</script>
+</body>
+</html>
