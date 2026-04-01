@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout Library | StandStrong</title>
+<meta name="description" content="Browse the full StandStrong POTS workout library by phase, mode, and intensity. Search, filter, and open workouts instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5294864495402917"
+     crossorigin="anonymous"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#faf7f2;--forest:#1a3a2a;--sage:#4a7c59;--mint:#c8e6d0;--gold:#d4a853;--warm:#f5ede0;
+    --text:#1a1a18;--muted:#6b7066;--border:#e0dbd2;
+  }
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+  nav{background:var(--forest);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
+  .logo{font-family:'Fraunces',serif;color:#fff;font-size:1.3rem;font-weight:500;letter-spacing:-0.02em;text-decoration:none}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:1.5rem;list-style:none}
+  .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;letter-spacing:0.03em;text-transform:uppercase;transition:color 0.2s}
+  .nav-links a:hover,.nav-links a.active{color:#fff}
+
+  .hero-wrap{background:var(--forest)}
+  .hero{max-width:1100px;margin:0 auto;padding:3.7rem 2rem;color:#fff}
+  .hero-tag{background:var(--sage);display:inline-block;color:#fff;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:999px;margin-bottom:1rem}
+  .hero h1{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;line-height:1.12;letter-spacing:-0.02em;margin-bottom:0.8rem}
+  .hero p{color:rgba(255,255,255,0.75);max-width:720px}
+  .hero-stats{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1.1rem}
+  .hero-stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.16);padding:0.55rem 0.9rem;border-radius:10px;font-size:0.82rem}
+  .hero-stat strong{color:var(--gold);font-size:1rem}
+
+  .main-wrap{max-width:1100px;margin:0 auto;padding:2rem}
+  .controls{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:1rem}
+  .controls-top{display:flex;justify-content:space-between;align-items:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:0.8rem}
+  .count{font-size:0.84rem;color:var(--muted)}
+  .search{width:100%;max-width:360px;border:1px solid var(--border);border-radius:10px;padding:0.55rem 0.8rem;font-size:0.84rem;font-family:'DM Sans',sans-serif}
+  .filter-group{display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.55rem}
+  .filter-btn{border:1px solid var(--border);background:var(--cream);color:var(--muted);padding:0.36rem 0.75rem;border-radius:999px;font-size:0.78rem;cursor:pointer}
+  .filter-btn.active{background:var(--forest);color:#fff;border-color:var(--forest)}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+  .card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0.95rem;display:flex;flex-direction:column}
+  .card-top{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.45rem}
+  .chip{display:inline-block;background:var(--mint);color:var(--forest);font-size:0.68rem;padding:0.2rem 0.52rem;border-radius:999px}
+  .chip.subtle{background:var(--warm)}
+  .card h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;color:var(--forest);margin-bottom:0.35rem}
+  .card p{font-size:0.82rem;color:var(--muted);margin-bottom:0.62rem}
+  .meta{display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.72rem}
+  .meta span{font-size:0.72rem;background:var(--cream);border:1px solid var(--border);border-radius:999px;padding:0.16rem 0.5rem;color:#555a52}
+  .open-btn{display:inline-block;align-self:flex-start;background:var(--sage);color:#fff;text-decoration:none;padding:0.36rem 0.86rem;border-radius:999px;font-size:0.76rem}
+  .empty{grid-column:1/-1;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem;color:var(--muted);font-size:0.85rem}
+
+  .pagination{display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+  .page-btn{border:1px solid var(--border);background:#fff;color:var(--text);padding:0.35rem 0.7rem;border-radius:8px;font-size:0.78rem;cursor:pointer}
+  .page-btn.active{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .page-btn:disabled{opacity:0.45;cursor:not-allowed}
+
+  footer{background:var(--forest);color:rgba(255,255,255,0.6);text-align:center;padding:1.6rem;margin-top:2rem;font-size:0.78rem}
+  footer a{color:rgba(255,255,255,0.66);text-decoration:none}
+
+  @media(max-width:900px){
+    .cards{grid-template-columns:1fr}
+  }
+  @media(max-width:700px){
+    .hero h1{font-size:2rem}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Stand<span>Strong</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#workouts">Workouts</a></li>
+    <li><a href="workout-library.html" class="active">Library</a></li>
+    <li><a href="pots-101.html">POTS 101</a></li>
+    <li><a href="gear.html">Gear</a></li>
+    <li><a href="community.html">Community</a></li>
+  </ul>
+</nav>
+
+<div class="hero-wrap">
+  <section class="hero">
+    <span class="hero-tag">Workout Catalog</span>
+    <h1>POTS Workout Library</h1>
+    <p>Browse by phase, training mode, and symptom tolerance. This is your full catalog for building a steady, safe progression from recumbent work to functional upright endurance.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong id="total-workouts">0</strong> total workouts</div>
+      <div class="hero-stat"><strong id="total-exercises">0</strong> structured exercises</div>
+    </div>
+  </section>
+</div>
+
+<div class="main-wrap">
+  <section class="controls">
+    <div class="controls-top">
+      <div class="count" id="library-count">0 workouts found</div>
+      <input id="library-search" class="search" type="search" placeholder="Search by name, phase, mode, or intensity">
+    </div>
+
+    <div class="filter-group">
+      <button type="button" class="filter-btn phase-filter active" data-value="all">All phases</button>
+      <button type="button" class="filter-btn phase-filter" data-value="1">Phase 1</button>
+      <button type="button" class="filter-btn phase-filter" data-value="2">Phase 2</button>
+      <button type="button" class="filter-btn phase-filter" data-value="3">Phase 3</button>
+      <button type="button" class="filter-btn phase-filter" data-value="4">Phase 4</button>
+      <button type="button" class="filter-btn phase-filter" data-value="0">Breathing</button>
+    </div>
+
+    <div class="filter-group">
+      <button type="button" class="filter-btn mode-filter active" data-value="all">All modes</button>
+      <button type="button" class="filter-btn mode-filter" data-value="recumbent">Recumbent</button>
+      <button type="button" class="filter-btn mode-filter" data-value="seated">Seated</button>
+      <button type="button" class="filter-btn mode-filter" data-value="standing">Standing</button>
+      <button type="button" class="filter-btn mode-filter" data-value="active">Active</button>
+      <button type="button" class="filter-btn mode-filter" data-value="breathing">Breathing</button>
+    </div>
+  </section>
+
+  <section id="library-cards" class="cards"></section>
+  <section id="library-pagination" class="pagination"></section>
+</div>
+
+<footer>
+  <div>2026 StandStrong POTS Fitness - <a href="#">Privacy</a> - <a href="#">Affiliate Disclosure</a> - <a href="#">Terms</a></div>
+</footer>
+
+<script type="module" src="/src/workout-library.js"></script>
+</body>
+</html>

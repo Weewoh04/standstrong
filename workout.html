@@ -113,6 +113,7 @@
   <a href="index.html" class="logo">Stand<span>Strong</span></a>
   <ul class="nav-links">
     <li><a href="index.html#workouts">Workouts</a></li>
+    <li><a href="workout-library.html">Library</a></li>
     <li><a href="pots-101.html">POTS 101</a></li>
     <li><a href="gear.html">Gear</a></li>
     <li><a href="community.html">Community</a></li>
@@ -370,6 +371,489 @@ const workouts = {
     ],
     ad: { title: 'Garmin Swim 2 Watch', desc: 'Waterproof HR monitoring — essential for tracking safe zones during aquatic POTS workouts' },
     tip: 'Aquatic exercise is often the gateway workout for severe POTS patients who cannot tolerate any land-based upright exercise. The water does the compression work for you.',
+    next: { title: 'Recumbent Core Reset Flow', id: 'recumbent-reset' }
+  },
+
+  'recumbent-reset': {
+    title: 'Recumbent Core Reset Flow',
+    tag: 'Recumbent - Phase 1',
+    tagColor: '#e3f2fd', tagText: '#1565c0',
+    desc: 'A gentle floor-based sequence that improves venous return, core control, and breathing rhythm before progressing to seated work.',
+    meta: ['10 min', 'Lying down', 'Low intensity', '4x per week'],
+    equipment: ['Yoga mat', 'Small pillow', 'HR monitor'],
+    steps: [
+      'Start lying flat with knees bent and feet on the floor.',
+      'Take 90 seconds of slow breathing before movement begins.',
+      'Complete each exercise in order with 20-30 seconds rest.',
+      'Pause and return to breathing if symptoms increase.',
+      'Finish with 2 minutes of quiet recovery in supine.'
+    ],
+    exercises: [
+      { name: 'Heel Slides', time: '2 sets x 10 each leg', desc: 'Slide one heel away while keeping hips stable, then return. This builds low-load core control in a safe position.', tips: 'Keep your low back neutral and move slowly.' },
+      { name: 'Glute Bridge Hold', time: '4 x 20 seconds', desc: 'Lift hips gently and hold. This activates glutes and hamstrings to assist blood flow from the legs.', tips: 'Do not arch your lower back; squeeze glutes first.' },
+      { name: 'Dead Bug Arms Only', time: '2 sets x 8 each side', desc: 'Maintain core brace while alternating arm reaches overhead. This teaches trunk stability without excessive HR rise.', tips: 'Exhale on each reach to avoid breath-holding.' },
+      { name: 'Ankle Circles', time: '90 seconds each side', desc: 'Rotate ankles through full range to keep distal circulation active.', tips: 'Move both clockwise and counterclockwise evenly.' },
+      { name: 'Supine Breathing Reset', time: '2 min', desc: 'Hands on ribs, long exhale breathing to downshift the nervous system before standing up.', tips: 'Exhale longer than inhale for best calming effect.' },
+    ],
+    hr: { target: 'Baseline to +18 BPM', caution: 'Baseline +19-27 BPM', stop: 'Baseline +28 BPM or symptoms increase' },
+    gear: [
+      { icon: 'CS', name: 'Compression Stockings', desc: 'Use before session if tolerated', bg: '#e8f5e9' },
+      { icon: 'HR', name: 'HR Monitor', desc: 'Track response to each set', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Compression Stockings 20-30mmHg', desc: 'Reliable daytime compression support for Phase 1 progression' },
+    tip: 'Recumbent sessions should feel controlled and repeatable. Consistency beats intensity in early POTS rehab.',
+    next: { title: 'Supine Bike Base Builder', id: 'supine-bike' }
+  },
+
+  'supine-bike': {
+    title: 'Supine Bike Base Builder',
+    tag: 'Recumbent - Phase 1',
+    tagColor: '#e3f2fd', tagText: '#1565c0',
+    desc: 'A short recumbent bike session that builds cardiovascular tolerance while keeping orthostatic load low.',
+    meta: ['16 min', 'Recumbent bike', 'Low-moderate', '3x per week'],
+    equipment: ['Recumbent bike', 'HR monitor', 'Water with electrolytes'],
+    steps: [
+      'Set bike resistance to very light for first week.',
+      'Warm up for 4 minutes at easy cadence.',
+      'Alternate easy and steady intervals as listed below.',
+      'Maintain nasal breathing when possible.',
+      'Cool down for 3 minutes and recline after finishing.'
+    ],
+    exercises: [
+      { name: 'Warmup Spin', time: '4 min', desc: 'Comfortable cadence to raise circulation gradually.', tips: 'Keep shoulders relaxed and grip light.' },
+      { name: 'Steady Interval', time: '4 x 90 sec', desc: 'Slightly faster cadence, still conversational effort.', tips: 'Keep HR in target zone and avoid sudden surges.' },
+      { name: 'Easy Recovery', time: '4 x 60 sec', desc: 'Very light spin between intervals to maintain flow.', tips: 'Use this time for long exhale breathing.' },
+      { name: 'Cooldown', time: '3 min', desc: 'Gradual slowdown to stabilize heart rate and symptoms.', tips: 'Do not stop abruptly at the end of the session.' },
+    ],
+    hr: { target: 'Baseline to +25 BPM', caution: 'Baseline +26-33 BPM', stop: 'Baseline +34 BPM or pre-syncope signs' },
+    gear: [
+      { icon: 'RB', name: 'Recumbent Bike', desc: 'Low step-through frame is ideal', bg: '#e3f2fd' },
+      { icon: 'EL', name: 'Electrolytes', desc: 'Hydrate before and after session', bg: '#fff3e0' },
+    ],
+    ad: { title: 'Recumbent Bike for Home Rehab', desc: 'Stable seated cardio option for early-phase POTS conditioning' },
+    tip: 'Shorter bike sessions done consistently are safer and more effective than occasional long sessions.',
+    next: { title: 'Seated Upper Body Pump', id: 'seated-upper' }
+  },
+
+  'seated-upper': {
+    title: 'Seated Upper Body Pump',
+    tag: 'Seated - Phase 2',
+    tagColor: '#fce4ec', tagText: '#880e4f',
+    desc: 'Seated upper body and postural work to improve circulation and tolerance before full standing strength.',
+    meta: ['14 min', 'Chair', 'Light', '3-4x per week'],
+    equipment: ['Chair', 'Light dumbbells or bands', 'HR monitor'],
+    steps: [
+      'Sit tall with both feet planted firmly.',
+      'Keep breathing steady through every repetition.',
+      'Alternate push and pull patterns to avoid overfatigue.',
+      'Rest 30-45 seconds between sets.',
+      'Finish with 2 minutes seated breathing recovery.'
+    ],
+    exercises: [
+      { name: 'Seated Band Row', time: '3 sets x 12', desc: 'Pull elbows back while maintaining upright posture. Supports shoulder and thoracic stability.', tips: 'Initiate from shoulder blades, not neck muscles.' },
+      { name: 'Seated Overhead Press', time: '2 sets x 10', desc: 'Press light weights overhead with controlled tempo.', tips: 'Keep ribcage down and avoid leaning backward.' },
+      { name: 'Seated Biceps Curl', time: '2 sets x 12', desc: 'Alternating curls to build arm endurance with minimal orthostatic stress.', tips: 'Lower weights slowly for better control.' },
+      { name: 'Seated Pallof Press', time: '2 sets x 8 each side', desc: 'Anti-rotation core drill using a resistance band from the side.', tips: 'Exhale while pressing away from chest.' },
+      { name: 'Neck and Shoulder Reset', time: '90 sec', desc: 'Gentle mobility to reduce tension after seated effort.', tips: 'Move in pain-free range only.' },
+    ],
+    hr: { target: 'Baseline to +24 BPM', caution: 'Baseline +25-32 BPM', stop: 'Baseline +33 BPM or dizziness' },
+    gear: [
+      { icon: 'BD', name: 'Loop Bands', desc: 'Light resistance is enough here', bg: '#e8f5e9' },
+      { icon: 'CH', name: 'Stable Chair', desc: 'No wheels and solid back support', bg: '#f3e5f5' },
+    ],
+    ad: { title: 'Loop Band Set for Seated Training', desc: 'Simple resistance options for safe Phase 2 strength work' },
+    tip: 'Phase 2 is where many people build confidence. Keep sessions smooth and symptom-aware.',
+    next: { title: 'Seated-to-Stand Transition Builder', id: 'seated-transition' }
+  },
+
+  'seated-transition': {
+    title: 'Seated-to-Stand Transition Builder',
+    tag: 'Seated - Phase 2',
+    tagColor: '#fce4ec', tagText: '#880e4f',
+    desc: 'A bridge workout that prepares your autonomic system for standing by using controlled position changes.',
+    meta: ['20 min', 'Chair + wall', 'Light-moderate', '3x per week'],
+    equipment: ['Chair', 'Wall support', 'HR monitor', 'Compression socks'],
+    steps: [
+      'Start seated and log your baseline heart rate.',
+      'Practice slow transitions instead of quick standing.',
+      'Use wall support whenever needed for confidence.',
+      'Rest seated between sets until symptoms settle.',
+      'End with 3 minutes of seated recovery breathing.'
+    ],
+    exercises: [
+      { name: 'Sit-to-Stand Tempo', time: '3 sets x 6', desc: 'Stand over 4 seconds, hold 3 seconds, sit over 4 seconds.', tips: 'Use hands on chair for support as needed.' },
+      { name: 'Wall Supported Mini Squat', time: '2 sets x 10', desc: 'Back to wall, short squat depth for early standing tolerance.', tips: 'Keep knees tracking over toes, not caving inward.' },
+      { name: 'March and Hold', time: '2 sets x 40 sec', desc: 'Standing march with light wall contact builds control and venous return.', tips: 'Small steps are better than fast steps.' },
+      { name: 'Seated Calf Raise Burnout', time: '2 sets x 20', desc: 'Finish with seated calf raises to support blood return before cooldown.', tips: 'Pause one second at the top of each rep.' },
+    ],
+    hr: { target: 'Baseline to +28 BPM', caution: 'Baseline +29-36 BPM', stop: 'Baseline +37 BPM or warning symptoms' },
+    gear: [
+      { icon: 'CS', name: 'Compression Socks', desc: 'Helpful before transition work', bg: '#fce4ec' },
+      { icon: 'HR', name: 'HR Monitor', desc: 'Check after every standing set', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Compression Socks for Upright Training', desc: 'Support circulation during seated-to-standing progression' },
+    tip: 'Do not rush position changes. Gradual transitions train tolerance better than forcing long stands.',
+    next: { title: 'Wall Support Strength Builder', id: 'wall-strength' }
+  },
+
+  'wall-strength': {
+    title: 'Wall Support Strength Builder',
+    tag: 'Standing - Phase 3',
+    tagColor: '#fff3e0', tagText: '#e65100',
+    desc: 'Standing lower body strength with wall support to improve orthostatic tolerance and muscle pump capacity.',
+    meta: ['18 min', 'Standing + wall', 'Moderate', '3x per week'],
+    equipment: ['Wall space', 'Loop bands', 'HR monitor', 'Compression stockings'],
+    steps: [
+      'Hydrate and put on compression before starting.',
+      'Use wall contact as needed for all standing sets.',
+      'Move with control and avoid breath-holding.',
+      'Sit and recover between rounds if symptoms appear.',
+      'Log heart rate response after each circuit.'
+    ],
+    exercises: [
+      { name: 'Wall Calf Raise Ladder', time: '3 rounds x 12', desc: 'Progressive calf raises to build venous return strength.', tips: 'Use a 2-second lift and 3-second lowering pace.' },
+      { name: 'Supported Split Squat', time: '2 sets x 8 each side', desc: 'Short-range split squat with hand on wall.', tips: 'Keep torso tall and front heel grounded.' },
+      { name: 'Band Lateral Walk', time: '2 sets x 10 steps each way', desc: 'Lateral glute work to improve hip stability and standing confidence.', tips: 'Maintain slight knee bend throughout.' },
+      { name: 'Heel-Toe Rocker', time: '2 x 60 sec', desc: 'Alternating heel and toe pressure to stimulate lower-leg circulation.', tips: 'Focus on smooth rhythmic movement.' },
+    ],
+    hr: { target: 'Baseline to +30 BPM', caution: 'Baseline +31-39 BPM', stop: 'Baseline +40 BPM or instability' },
+    gear: [
+      { icon: 'BD', name: 'Loop Bands', desc: 'Moderate resistance for leg work', bg: '#e8f5e9' },
+      { icon: 'CS', name: 'Compression', desc: 'Recommended for all Phase 3 sessions', bg: '#fce4ec' },
+    ],
+    ad: { title: 'Resistance Band Kit for Phase 3', desc: 'Adds safe load while preserving symptom-aware pacing' },
+    tip: 'Strong calf and hip muscles are key for reducing blood pooling during upright activity.',
+    next: { title: 'Upright Endurance Intervals', id: 'upright-intervals' }
+  },
+
+  'upright-intervals': {
+    title: 'Upright Endurance Intervals',
+    tag: 'Active - Phase 4',
+    tagColor: '#e8f5e9', tagText: '#2e7d32',
+    desc: 'A structured interval session for late-stage progression into daily upright function and endurance.',
+    meta: ['24 min', 'Standing + walking', 'Moderate', '2-3x per week'],
+    equipment: ['Walking space or treadmill', 'HR monitor', 'Water/electrolytes'],
+    steps: [
+      'Begin with a 5-minute easy warmup walk.',
+      'Alternate work and recovery intervals.',
+      'Keep all intervals below your symptom threshold.',
+      'Pause and sit if warning signs appear.',
+      'Cool down and recover in seated position.'
+    ],
+    exercises: [
+      { name: 'Warmup Walk', time: '5 min', desc: 'Comfortable pace with easy breathing.', tips: 'Start slower than you think you need.' },
+      { name: 'Steady Walk Interval', time: '6 x 90 sec', desc: 'Brisk but controlled walk at moderate effort.', tips: 'You should still be able to speak short phrases.' },
+      { name: 'Easy Recovery Walk', time: '6 x 60 sec', desc: 'Slow pace recovery between intervals.', tips: 'Use long exhale breathing to settle HR quickly.' },
+      { name: 'Postural Reset', time: '2 min', desc: 'Standing wall-supported breathing and calf pulses.', tips: 'Keep jaw and shoulders relaxed.' },
+    ],
+    hr: { target: 'Baseline to +32 BPM', caution: 'Baseline +33-41 BPM', stop: 'Baseline +42 BPM or presyncope' },
+    gear: [
+      { icon: 'HR', name: 'HR Monitor', desc: 'Interval safety depends on real-time data', bg: '#e3f2fd' },
+      { icon: 'EL', name: 'Electrolytes', desc: 'Hydrate before and after intervals', bg: '#fff3e0' },
+    ],
+    ad: { title: 'Chest Strap HR Monitor', desc: 'Accurate live heart-rate tracking for interval progression' },
+    tip: 'Phase 4 is about controlled return to function, not max effort. End sessions feeling capable, not crashed.',
+    next: { title: 'Functional Reclaim Circuit', id: 'functional-circuit' }
+  },
+
+  'functional-circuit': {
+    title: 'Functional Reclaim Circuit',
+    tag: 'Active - Phase 4',
+    tagColor: '#e8f5e9', tagText: '#2e7d32',
+    desc: 'A functional circuit that simulates daily movement demands while keeping pacing and symptom control at the center.',
+    meta: ['26 min', 'Standing + carries', 'Moderate', '2x per week'],
+    equipment: ['Light dumbbells or household objects', 'Chair', 'HR monitor'],
+    steps: [
+      'Warm up with 4 minutes of easy movement.',
+      'Complete 3 rounds of the circuit below.',
+      'Rest 75 seconds between rounds.',
+      'Monitor symptoms after each station.',
+      'Finish with seated breathing cooldown.'
+    ],
+    exercises: [
+      { name: 'Sit-to-Stand Carry Prep', time: '3 sets x 8', desc: 'Controlled sit-to-stand holding light weight at chest height.', tips: 'Keep movement smooth and avoid momentum.' },
+      { name: 'Farmer Carry March', time: '3 x 45 sec', desc: 'Walk slowly while carrying light weights at sides.', tips: 'Short steps and upright posture are the goal.' },
+      { name: 'Counter Push-Up', time: '3 sets x 10', desc: 'Incline push-up against kitchen counter or bench.', tips: 'Maintain rigid trunk and neutral neck.' },
+      { name: 'Step Tap Pattern', time: '3 x 60 sec', desc: 'Alternate toe taps onto low step to train dynamic balance.', tips: 'Use wall or rail for balance when needed.' },
+      { name: 'Cooldown Breathing', time: '3 min', desc: 'Seated long-exhale recovery to settle autonomic load.', tips: 'Track how quickly HR settles as a progress marker.' },
+    ],
+    hr: { target: 'Baseline to +34 BPM', caution: 'Baseline +35-42 BPM', stop: 'Baseline +43 BPM or symptom flare' },
+    gear: [
+      { icon: 'DB', name: 'Light Dumbbells', desc: '2-8 lb is enough for this phase', bg: '#e8f5e9' },
+      { icon: 'CH', name: 'Stable Chair', desc: 'Used for transition and pacing breaks', bg: '#f3e5f5' },
+    ],
+    ad: { title: 'Adjustable Light Dumbbells', desc: 'Useful for progressive functional training at home' },
+    tip: 'Your best Phase 4 workouts should improve daily life confidence the same day, not leave you wiped out.',
+    next: { title: 'Recumbent Recovery Mobility', id: 'recumbent-mobility' }
+  },
+
+  'recumbent-mobility': {
+    title: 'Recumbent Recovery Mobility',
+    tag: 'Recumbent - Phase 1',
+    tagColor: '#e3f2fd', tagText: '#1565c0',
+    desc: 'Low-stress mobility and breathing designed for symptom-heavy days while still supporting circulation.',
+    meta: ['9 min', 'Lying down', 'Very low', 'As needed'],
+    equipment: ['Yoga mat', 'Small towel', 'HR monitor'],
+    steps: [
+      'Start fully reclined and settle your breathing.',
+      'Move through small ranges without forcing positions.',
+      'Pause between drills and check symptoms.',
+      'Keep effort below a 3 out of 10.',
+      'Finish with one minute of stillness.'
+    ],
+    exercises: [
+      { name: 'Supine Windshield Wipers', time: '2 x 45 sec', desc: 'Gentle lower-body rotation to reduce tension and improve tolerance.', tips: 'Keep shoulders heavy on the floor.' },
+      { name: 'Knee Hugs', time: '2 x 8 each side', desc: 'Alternating knee-to-chest movement to support circulation and mobility.', tips: 'Exhale as the knee draws in.' },
+      { name: 'Heel Slide Reach', time: '2 x 10 each side', desc: 'Coordinate arm reach and heel slide for gentle core activation.', tips: 'Move slowly and keep your neck relaxed.' },
+      { name: 'Long Exhale Reset', time: '2 min', desc: 'Breathe in for 4, out for 6-8 to calm sympathetic tone.', tips: 'Exhale through pursed lips if helpful.' },
+    ],
+    hr: { target: 'At baseline or below +15 BPM', caution: '+16-22 BPM', stop: '+23 BPM or increasing symptoms' },
+    gear: [
+      { icon: 'HR', name: 'Heart Rate Monitor', desc: 'Useful on flare days', bg: '#e3f2fd' },
+      { icon: 'WP', name: 'Wedge Pillow', desc: 'Comfort support for recovery', bg: '#f3e5f5' },
+    ],
+    ad: { title: 'Wedge Pillow for Recovery', desc: 'Comfortable support for symptom-aware mobility days' },
+    tip: 'Easy recovery days keep momentum without triggering crashes.',
+    next: { title: 'Recumbent Endurance Builder', id: 'recumbent-endurance' }
+  },
+
+  'recumbent-endurance': {
+    title: 'Recumbent Endurance Builder',
+    tag: 'Recumbent - Phase 1',
+    tagColor: '#e3f2fd', tagText: '#1565c0',
+    desc: 'A longer recumbent interval structure to build foundational cardio tolerance safely.',
+    meta: ['20 min', 'Recumbent', 'Low-moderate', '2-3x per week'],
+    equipment: ['Recumbent bike', 'HR monitor', 'Electrolytes'],
+    steps: [
+      'Begin with 4 minutes gentle spin.',
+      'Alternate steady and easy blocks.',
+      'Stay below caution range throughout.',
+      'Take seated recovery if symptoms rise.',
+      'Cool down fully before standing.'
+    ],
+    exercises: [
+      { name: 'Easy Warmup', time: '4 min', desc: 'Light pace to gradually raise circulation.', tips: 'Keep shoulders relaxed and jaw loose.' },
+      { name: 'Steady Block', time: '4 x 2 min', desc: 'Controlled moderate effort interval.', tips: 'Use smooth cadence, not heavy resistance.' },
+      { name: 'Recovery Spin', time: '4 x 90 sec', desc: 'Easy pace between work blocks.', tips: 'Focus on longer exhale during recovery.' },
+      { name: 'Cooldown Spin', time: '3 min', desc: 'Slowly taper effort to settle heart rate.', tips: 'Do not step off immediately after stopping.' },
+    ],
+    hr: { target: 'Baseline to +26 BPM', caution: '+27-34 BPM', stop: '+35 BPM or warning symptoms' },
+    gear: [
+      { icon: 'RB', name: 'Recumbent Bike', desc: 'Primary cardio tool for early progression', bg: '#e3f2fd' },
+      { icon: 'EL', name: 'Electrolytes', desc: 'Pre-hydrate before starting', bg: '#fff3e0' },
+    ],
+    ad: { title: 'Electrolyte Mix for Training Days', desc: 'Hydration support for recumbent endurance sessions' },
+    tip: 'Endurance improves fastest when intervals are repeatable, not exhausting.',
+    next: { title: 'Seated Lower Body Pump', id: 'seated-lower' }
+  },
+
+  'seated-lower': {
+    title: 'Seated Lower Body Pump',
+    tag: 'Seated - Phase 2',
+    tagColor: '#fce4ec', tagText: '#880e4f',
+    desc: 'Seated lower-body strengthening that targets calf and quad muscle pumps before standing sets.',
+    meta: ['16 min', 'Chair', 'Light', '3x per week'],
+    equipment: ['Chair', 'Mini band optional', 'HR monitor'],
+    steps: [
+      'Sit on a stable chair with upright posture.',
+      'Perform each movement with controlled tempo.',
+      'Rest 30 seconds between exercises.',
+      'Hydrate between rounds if needed.',
+      'Finish with seated breathing downshift.'
+    ],
+    exercises: [
+      { name: 'Seated Calf Raise', time: '3 x 20', desc: 'Lift heels and squeeze calves at top.', tips: 'Pause one second at each top position.' },
+      { name: 'Seated Knee Extension', time: '3 x 12 each leg', desc: 'Straighten knee and lower under control.', tips: 'Do not lock out hard at top.' },
+      { name: 'Band Abduction Press', time: '2 x 15', desc: 'Push knees outward against mini band.', tips: 'Keep torso tall and steady.' },
+      { name: 'Seated March Hold', time: '2 x 45 sec', desc: 'Alternating knee lift with brief hold.', tips: 'Exhale gently on each lift.' },
+    ],
+    hr: { target: 'Baseline to +24 BPM', caution: '+25-32 BPM', stop: '+33 BPM or symptomatic rise' },
+    gear: [
+      { icon: 'BD', name: 'Mini Band', desc: 'Optional added glute work', bg: '#e8f5e9' },
+      { icon: 'CH', name: 'Stable Chair', desc: 'Firm seat preferred', bg: '#f3e5f5' },
+    ],
+    ad: { title: 'Mini Loop Bands for Seated Work', desc: 'Simple progression tool for Phase 2 sessions' },
+    tip: 'Building the seated muscle pump makes standing progress much smoother.',
+    next: { title: 'Seated Mobility and Breath Flow', id: 'seated-mobility' }
+  },
+
+  'seated-mobility': {
+    title: 'Seated Mobility and Breath Flow',
+    tag: 'Seated - Phase 2',
+    tagColor: '#fce4ec', tagText: '#880e4f',
+    desc: 'A seated flow focused on spinal mobility, breathing rhythm, and autonomic calm.',
+    meta: ['12 min', 'Chair', 'Low', 'Daily'],
+    equipment: ['Chair', 'Optional timer'],
+    steps: [
+      'Sit tall with feet grounded.',
+      'Pair each movement with your breath.',
+      'Keep ranges smooth and pain-free.',
+      'Pause if heart rate climbs quickly.',
+      'End with one minute eyes-closed breathing.'
+    ],
+    exercises: [
+      { name: 'Seated Cat-Cow', time: '2 min', desc: 'Gentle spinal flexion-extension in rhythm with breath.', tips: 'Move from pelvis and mid-back together.' },
+      { name: 'Thoracic Rotation Reach', time: '2 x 8 each side', desc: 'Upper-back rotation to reduce stiffness.', tips: 'Keep hips stable while turning.' },
+      { name: 'Side Bend Sweep', time: '2 x 8 each side', desc: 'Controlled side bending with long exhale.', tips: 'Keep both sit bones rooted in the chair.' },
+      { name: 'Resonant Breathing', time: '3 min', desc: 'Slow 5-6 breaths per minute to settle HR.', tips: 'Inhale 5 seconds, exhale 5 seconds.' },
+    ],
+    hr: { target: 'Baseline to +18 BPM', caution: '+19-25 BPM', stop: '+26 BPM with symptoms' },
+    gear: [
+      { icon: 'TM', name: 'Timer App', desc: 'Helpful for breath pacing', bg: '#e3f2fd' },
+      { icon: 'CH', name: 'Chair Support', desc: 'Keep setup comfortable', bg: '#f3e5f5' },
+    ],
+    ad: { title: 'Guided Breath App Subscription', desc: 'Structured sessions for daily autonomic support' },
+    tip: 'Short seated mobility sessions are ideal on medium-energy days.',
+    next: { title: 'Standing Balance Starter', id: 'standing-balance' }
+  },
+
+  'standing-balance': {
+    title: 'Standing Balance Starter',
+    tag: 'Standing - Phase 3',
+    tagColor: '#fff3e0', tagText: '#e65100',
+    desc: 'Low-load standing balance and calf activation to build confidence in upright control.',
+    meta: ['14 min', 'Standing + support', 'Light-moderate', '3x per week'],
+    equipment: ['Wall or counter', 'HR monitor', 'Compression stockings'],
+    steps: [
+      'Begin near a stable support surface.',
+      'Wear compression for all standing rounds.',
+      'Use short bouts with planned seated breaks.',
+      'Keep breathing steady through each rep.',
+      'Cool down seated for 2 minutes.'
+    ],
+    exercises: [
+      { name: 'Supported Tandem Stand', time: '3 x 30 sec each side', desc: 'Heel-to-toe stance with hand support as needed.', tips: 'Keep eyes on a fixed point.' },
+      { name: 'Calf Raise Pulses', time: '3 x 15', desc: 'Small controlled pulses for venous return.', tips: 'Slow lowering is more important than height.' },
+      { name: 'Single-Leg Toe Tap', time: '2 x 8 each side', desc: 'Tap forward/side/back while standing on one leg.', tips: 'Use fingertip wall support if needed.' },
+      { name: 'Sit-Back Recovery', time: '2 x 60 sec', desc: 'Seated breathing recovery between rounds.', tips: 'Let heart rate settle before next set.' },
+    ],
+    hr: { target: 'Baseline to +30 BPM', caution: '+31-38 BPM', stop: '+39 BPM or instability' },
+    gear: [
+      { icon: 'CS', name: 'Compression', desc: 'Important for upright tolerance', bg: '#fce4ec' },
+      { icon: 'HR', name: 'HR Monitor', desc: 'Check between standing sets', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Compression Socks for Standing Work', desc: 'Daily support during Phase 3 progression' },
+    tip: 'Balance drills train confidence and autonomic control together.',
+    next: { title: 'Standing Resistance Circuit', id: 'standing-resistance' }
+  },
+
+  'standing-resistance': {
+    title: 'Standing Resistance Circuit',
+    tag: 'Strength - Phase 3',
+    tagColor: '#fff3e0', tagText: '#e65100',
+    desc: 'A moderate standing circuit to strengthen lower-body pump muscles with symptom-aware pacing.',
+    meta: ['21 min', 'Bands + standing', 'Moderate', '2-3x per week'],
+    equipment: ['Loop bands', 'Chair or wall support', 'HR monitor'],
+    steps: [
+      'Warm up with calf raises and ankle pumps.',
+      'Perform two to three rounds of the circuit.',
+      'Rest seated between rounds.',
+      'Avoid breath-holding during band work.',
+      'End with slow cooldown and hydration.'
+    ],
+    exercises: [
+      { name: 'Band Squat to Chair', time: '3 x 10', desc: 'Sit-back squat with mini band at knees.', tips: 'Keep knees tracking over toes.' },
+      { name: 'Band Good Morning', time: '3 x 12', desc: 'Hip hinge resistance for posterior chain strength.', tips: 'Neutral spine throughout the hinge.' },
+      { name: 'Lateral Step Against Band', time: '2 x 12 each way', desc: 'Side-step resistance to strengthen hip stabilizers.', tips: 'Small controlled steps beat big fast steps.' },
+      { name: 'Standing Calf Hold', time: '3 x 25 sec', desc: 'Top-position calf hold for pump endurance.', tips: 'Use support lightly and breathe continuously.' },
+    ],
+    hr: { target: 'Baseline to +32 BPM', caution: '+33-40 BPM', stop: '+41 BPM or symptom flare' },
+    gear: [
+      { icon: 'BD', name: 'Resistance Bands', desc: 'Use light-medium tension', bg: '#e8f5e9' },
+      { icon: 'HR', name: 'HR Monitor', desc: 'Use real-time threshold checks', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Band Set for Progressive Resistance', desc: 'Smooth strength progression for Phase 3 workouts' },
+    tip: 'Stronger leg and hip muscles reduce pooling during daily upright tasks.',
+    next: { title: 'Breath-Led Recovery Session', id: 'breath-recovery' }
+  },
+
+  'breath-recovery': {
+    title: 'Breath-Led Recovery Session',
+    tag: 'Breathing - All Levels',
+    tagColor: '#e8f5e9', tagText: '#2e7d32',
+    desc: 'A standalone recovery session to regulate nervous system load between harder training days.',
+    meta: ['11 min', 'Any position', 'Recovery', 'Daily'],
+    equipment: ['Quiet space', 'Timer'],
+    steps: [
+      'Choose lying, reclined, or supported seated position.',
+      'Begin with two minutes of natural breathing.',
+      'Move through guided breath patterns.',
+      'Keep face, jaw, and shoulders relaxed.',
+      'Finish with one minute of stillness.'
+    ],
+    exercises: [
+      { name: 'Cadence Breathing', time: '3 min', desc: 'Inhale 4, exhale 6 rhythm to downshift autonomic tone.', tips: 'Make exhale soft and unforced.' },
+      { name: 'Box Breathing Lite', time: '3 min', desc: 'Inhale 4, hold 2, exhale 4, hold 2.', tips: 'Reduce hold time if uncomfortable.' },
+      { name: 'Extended Exhale Set', time: '3 min', desc: 'Inhale 4, exhale 8 for strong calming effect.', tips: 'Never strain to hit exact counts.' },
+      { name: 'Body Scan Reset', time: '2 min', desc: 'Release muscular tension from feet to jaw.', tips: 'Keep breathing quiet and nasal if possible.' },
+    ],
+    hr: { target: 'At or below resting HR', caution: 'Sustained HR increase despite breathing', stop: 'Chest pain, presyncope, or distress' },
+    gear: [
+      { icon: 'TM', name: 'Breath Timer', desc: 'Visual pacing helps consistency', bg: '#e3f2fd' },
+      { icon: 'HR', name: 'HR Monitor', desc: 'Optional for trend tracking', bg: '#f3e5f5' },
+    ],
+    ad: { title: 'Guided Breathing Program', desc: 'Simple daily recovery sessions for autonomic regulation' },
+    tip: 'Recovery breathing sessions improve consistency across your whole training week.',
+    next: { title: 'Phase 4 Cardio Ladder', id: 'phase4-cardio' }
+  },
+
+  'phase4-cardio': {
+    title: 'Phase 4 Cardio Ladder',
+    tag: 'Active - Phase 4',
+    tagColor: '#e8f5e9', tagText: '#2e7d32',
+    desc: 'Progressive interval ladder for users ready to build more upright cardiovascular capacity.',
+    meta: ['28 min', 'Walking or bike', 'Moderate', '2x per week'],
+    equipment: ['Treadmill or safe walking path', 'HR monitor', 'Electrolytes'],
+    steps: [
+      'Warm up thoroughly before intervals.',
+      'Increase interval length gradually up the ladder.',
+      'Recover fully between work blocks.',
+      'Keep intensity submaximal and controlled.',
+      'Cooldown until HR trends down steadily.'
+    ],
+    exercises: [
+      { name: 'Warmup', time: '5 min', desc: 'Easy pace to prepare circulation and joints.', tips: 'Do not start intervals cold.' },
+      { name: 'Ladder Up', time: '1-2-3-4 min', desc: 'Moderate work blocks with equal easy recovery.', tips: 'Hold steady effort, no sprinting.' },
+      { name: 'Ladder Down', time: '3-2-1 min', desc: 'Controlled descent in interval length.', tips: 'Use breath to control heart rate.' },
+      { name: 'Cooldown Walk', time: '5 min', desc: 'Return to comfortable conversational pace.', tips: 'Stay moving until dizziness risk is low.' },
+    ],
+    hr: { target: 'Baseline to +34 BPM', caution: '+35-42 BPM', stop: '+43 BPM or warning symptoms' },
+    gear: [
+      { icon: 'HR', name: 'HR Monitor', desc: 'Essential for interval limits', bg: '#e3f2fd' },
+      { icon: 'EL', name: 'Electrolytes', desc: 'Pre and post hydration support', bg: '#fff3e0' },
+    ],
+    ad: { title: 'Chest Strap HR Monitor', desc: 'Reliable data for interval ladders and safe progression' },
+    tip: 'The ladder format improves endurance without needing maximal intensity.',
+    next: { title: 'Phase 4 Functional Endurance', id: 'phase4-functional-endurance' }
+  },
+
+  'phase4-functional-endurance': {
+    title: 'Phase 4 Functional Endurance',
+    tag: 'Active - Phase 4',
+    tagColor: '#e8f5e9', tagText: '#2e7d32',
+    desc: 'A practical endurance circuit focused on stairs, carries, and daily activity readiness.',
+    meta: ['30 min', 'Functional circuit', 'Moderate', '1-2x per week'],
+    equipment: ['Light weights', 'Step platform', 'Chair', 'HR monitor'],
+    steps: [
+      'Use a 3-station circuit with planned pacing.',
+      'Complete 3 rounds at controlled effort.',
+      'Take seated rest after each round.',
+      'Track HR response and symptom trend.',
+      'Finish with breathing cooldown.'
+    ],
+    exercises: [
+      { name: 'Step-Up Pattern', time: '3 x 60 sec', desc: 'Low step-up practice for functional lower-body endurance.', tips: 'Use rail or wall for balance if needed.' },
+      { name: 'Farmer Carry Walk', time: '3 x 60 sec', desc: 'Carry light weights while walking with upright posture.', tips: 'Keep steps short and consistent.' },
+      { name: 'Counter Push Circuit', time: '3 x 12', desc: 'Counter push-ups to support whole-body endurance.', tips: 'Maintain a straight body line.' },
+      { name: 'Seated Recovery Breath', time: '3 min', desc: 'Controlled breathing to settle autonomic load post-circuit.', tips: 'Exhale longer than inhale.' },
+    ],
+    hr: { target: 'Baseline to +35 BPM', caution: '+36-43 BPM', stop: '+44 BPM or postural warning signs' },
+    gear: [
+      { icon: 'DB', name: 'Light Dumbbells', desc: 'Use manageable weight only', bg: '#e8f5e9' },
+      { icon: 'HR', name: 'HR Monitor', desc: 'Track safety in functional circuits', bg: '#e3f2fd' },
+    ],
+    ad: { title: 'Adjustable Dumbbells for Home Training', desc: 'Easy progression for functional endurance circuits' },
+    tip: 'Functional endurance should make everyday life easier, not harder the next day.',
     next: { title: 'Leg Pump Recumbent Circuit', id: 'leg-pump' }
   }
 }
